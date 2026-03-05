@@ -88,11 +88,13 @@
   .hero-eyebrow::before { display: none; }
   .hero-headline {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(5rem, 13vw, 160px);
-    line-height: 0.92;
+    font-size: clamp(2.8rem, 9.5vw, 160px);
+    line-height: 0.95;
     letter-spacing: 0.02em;
     margin-bottom: 2rem;
     color: var(--black);
+    white-space: normal;
+    word-break: break-word;
   }
   .hero-headline span { color: var(--gold); }
   .hero-sub {
@@ -357,6 +359,75 @@
   }
   .btn-dark:hover { transform: translateY(-2px); opacity: 0.85; }
 
+  /* CONTACT FORM */
+  .contact { background: var(--gold); padding: 6rem 3rem; }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; max-width: 1100px; margin: 0 auto;
+    align-items: start;
+  }
+  .contact-left h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--white); line-height: 0.95;
+    letter-spacing: 0.03em; margin-bottom: 1.2rem;
+  }
+  .contact-left p {
+    font-size: 1rem; color: rgba(255,255,255,0.75);
+    line-height: 1.7; max-width: 380px;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(255,255,255,0.85);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px; padding: 0.85rem 1rem;
+    color: var(--white); font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 300;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none; width: 100%;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.45);
+  }
+  .form-group select option { background: #2e37fe; color: var(--white); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.22);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    background: var(--black); color: var(--white);
+    border: none; padding: 1rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border-radius: 2px; cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { transform: translateY(-2px); opacity: 0.85; }
+  .form-success {
+    display: none; background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 2px; padding: 1.2rem 1.5rem;
+    color: var(--white); font-size: 0.9rem; line-height: 1.6;
+  }
+  @media (max-width: 768px) {
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
   /* FOOTER */
   footer {
     background: var(--black); padding: 3rem;
@@ -386,10 +457,15 @@
     .nav-links { gap: 1.2rem; }
     .nav-links a:not(.nav-cta) { display: none; }
     section { padding: 4rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 4rem; }
+    .hero { padding: 6rem 1.5rem 4rem; }
     .retainer-grid { grid-template-columns: 1fr; }
     .packages-header { flex-direction: column; }
     footer { flex-direction: column; align-items: flex-start; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-outline {
+      width: 100%; text-align: center;
+      padding: 1.1rem 2rem; font-size: 1rem;
+    }
   }
 
   /* ANIMATIONS */
@@ -421,9 +497,8 @@
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Waymaker Studios &mdash; Digital Creative Agency</div>
     <h1 class="hero-headline">
-      Content that<br/><span>makes a way.</span>
+      Content that <span>makes a way.</span>
     </h1>
     <p class="hero-sub">
       Bring your ideas to life through visuals that resonate. We help small businesses share their story through consistent, strategic content — delivered fast, built to convert.
@@ -635,11 +710,18 @@
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<section class="cta-banner" id="contact">
-  <h2>We'd Love to<br/>Work With You.</h2>
-  <p>Bring your ideas to life with visuals that resonate. Start with a package or reach out — we'll find the right fit for your business or event.</p>
-  <a href="/cdn-cgi/l/email-protection#ea828f868685aa9d8b93878b818f98999e9f8e838599c48985" class="btn-dark">Get Started Today</a>
+<!-- CONTACT FORM -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>We'd Love to<br/>Work With You.</h2>
+      <p>Bring your ideas to life with visuals that resonate. Fill out the form and we'll get back to you within 24 hours to find the right fit for your business or event.</p>
+    </div>
+    <div>
+          <iframe style="border:none;width:100%;height:700px;max-height:90vh;" id="contact-form-waymaker-studios-kiq8yl" src="https://noteforms.com/forms/contact-form-waymaker-studios-kiq8yl"></iframe>
+          <script type="text/javascript" onload="initEmbed('contact-form-waymaker-studios-kiq8yl', { autoResize: false })" src="https://noteforms.com/widgets/iframe.min.js"></script>
+        </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -651,4 +733,26 @@
     <a href="#process">Process</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="footer-verse">† John 14:6 &nbsp;·&nbsp; Waymaker
+  <div class="footer-verse">† John 14:6 &nbsp;·&nbsp; Waymaker Studios, LLC</div>
+</footer>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  const success = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST', body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    });
+  }
+</script>
+</body>
+</html>
