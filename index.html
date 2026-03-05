@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Waymaker Studios</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --cream: #f7f7f7;
+    --gold: #2e37fe;
+    --gold-light: #5560ff;
+    --muted: #888888;
+    --card-bg: #f7f7f7;
+    --border: rgba(46,55,254,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 3rem;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+  .nav-links a {
+    color: var(--black); text-decoration: none;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta {
+    background: var(--gold) !important; color: var(--white) !important;
+    padding: 0.6rem 1.4rem; border-radius: 2px;
+    opacity: 1 !important; font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 3rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(46,55,254,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(46,55,254,0.04) 0%, transparent 60%);
+  }
+  .hero-grain {
+    position: absolute; inset: 0; z-index: 1; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat; background-size: 200px;
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 1100px; }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before { display: none; }
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 13vw, 160px);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+    color: var(--black);
+  }
+  .hero-headline span { color: var(--gold); }
+  .hero-sub {
+    max-width: 560px;
+    font-size: 1.05rem; line-height: 1.7;
+    color: rgba(26,26,26,0.6);
+    margin-bottom: 2.8rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--white);
+    padding: 0.9rem 2rem; font-size: 0.85rem;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(26,26,26,0.25); color: var(--black);
+    padding: 0.9rem 2rem; font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: border-color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-ticker {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden; padding: 0.9rem 0;
+    background: rgba(255,255,255,0.7);
+  }
+  .ticker-track {
+    display: flex; gap: 3rem; width: max-content;
+    animation: ticker 22s linear infinite;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem; letter-spacing: 0.15em; color: rgba(26,26,26,0.4);
+  }
+  .ticker-track span { color: var(--gold); margin-right: 0.5rem; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SECTION BASE */
+  section { padding: 6rem 3rem; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem;
+  }
+  .section-label::before {
+    content: ''; width: 1.5rem; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1; letter-spacing: 0.03em;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 0.95rem; color: rgba(26,26,26,0.55);
+    line-height: 1.7; max-width: 480px;
+  }
+
+  /* SERVICES */
+  .services { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px; margin-top: 4rem;
+    border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden;
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.3s;
+    position: relative;
+  }
+  .service-card:hover { background: #efefef; }
+  .service-icon {
+    font-size: 1.8rem; margin-bottom: 1.2rem;
+    display: block;
+  }
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; letter-spacing: 0.05em;
+    color: var(--black); margin-bottom: 0.7rem;
+  }
+  .service-desc {
+    font-size: 0.88rem; color: rgba(26,26,26,0.55);
+    line-height: 1.65; margin-bottom: 1.5rem;
+  }
+  .service-tag {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    background: rgba(46,55,254,0.08);
+    padding: 0.3rem 0.7rem; border-radius: 2px; display: inline-block;
+  }
+
+  /* PACKAGES */
+  .packages { background: var(--cream); }
+  .packages-header {
+    display: flex; flex-direction: column;
+    gap: 0.5rem; margin-bottom: 4rem;
+  }
+  .packages-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .pkg-card {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px; padding: 2.5rem 2rem;
+    background: var(--white);
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .pkg-card:hover { transform: translateY(-4px); border-color: rgba(46,55,254,0.5); }
+  .pkg-card.featured {
+    border-color: var(--gold);
+    background: #f5f6ff;
+  }
+  .pkg-badge {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; background: var(--gold);
+    color: var(--white); padding: 0.25rem 0.6rem; border-radius: 2px;
+  }
+  .pkg-tier {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;
+  }
+  .pkg-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem; letter-spacing: 0.04em; margin-bottom: 0.4rem;
+    color: var(--black);
+  }
+  .pkg-price {
+    font-size: 2.4rem; font-weight: 700; color: var(--black);
+    margin-bottom: 0.3rem;
+  }
+  .pkg-price sup { font-size: 1rem; vertical-align: super; font-weight: 300; }
+  .pkg-price-note {
+    font-size: 0.78rem; color: var(--muted); margin-bottom: 1.8rem;
+  }
+  .pkg-divider {
+    height: 1px; background: rgba(0,0,0,0.08); margin-bottom: 1.5rem;
+  }
+  .pkg-features { list-style: none; margin-bottom: 2rem; }
+  .pkg-features li {
+    font-size: 0.86rem; color: rgba(26,26,26,0.7);
+    padding: 0.4rem 0;
+    display: flex; align-items: flex-start; gap: 0.6rem; line-height: 1.5;
+  }
+  .pkg-features li::before {
+    content: '✦'; color: var(--gold); font-size: 0.55rem;
+    margin-top: 0.35rem; flex-shrink: 0;
+  }
+  .pkg-features li.muted { color: rgba(26,26,26,0.25); }
+  .pkg-features li.muted::before { color: rgba(26,26,26,0.15); }
+  .pkg-cta {
+    display: block; text-align: center; text-decoration: none;
+    padding: 0.85rem; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border-radius: 2px; transition: all 0.2s;
+  }
+  .pkg-cta-outline {
+    border: 1px solid rgba(26,26,26,0.2); color: var(--black);
+  }
+  .pkg-cta-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .pkg-cta-filled {
+    background: var(--gold); color: var(--white);
+  }
+  .pkg-cta-filled:hover { background: var(--gold-light); }
+
+  /* ADDONS */
+  .addons { background: var(--white); }
+  .addons-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px; margin-top: 3.5rem;
+    border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden;
+  }
+  .addon-item {
+    background: var(--cream); padding: 1.8rem 1.6rem;
+    transition: background 0.2s;
+  }
+  .addon-item:hover { background: #efefef; }
+  .addon-emoji { font-size: 1.4rem; margin-bottom: 0.8rem; display: block; }
+  .addon-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; color: var(--black); }
+  .addon-price { color: var(--gold); font-size: 0.88rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .addon-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+  /* RETAINER */
+  .retainer { background: var(--black); }
+  .retainer .section-label { color: var(--gold); }
+  .retainer .section-label::before { background: var(--gold); }
+  .retainer .section-title { color: var(--white); }
+  .retainer .section-sub { color: rgba(255,255,255,0.5); }
+  .retainer-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 3.5rem;
+  }
+  .retainer-card {
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;
+    padding: 2.5rem 2rem; background: #242424;
+    transition: border-color 0.2s;
+  }
+  .retainer-card:hover { border-color: rgba(46,55,254,0.5); }
+  .retainer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem; letter-spacing: 0.04em; margin-bottom: 0.3rem; color: var(--white);
+  }
+  .retainer-price { font-size: 1.6rem; font-weight: 700; color: var(--gold); margin-bottom: 0.3rem; }
+  .retainer-cadence { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+  .retainer-features { list-style: none; }
+  .retainer-features li {
+    font-size: 0.85rem; color: rgba(255,255,255,0.6);
+    padding: 0.35rem 0; display: flex; gap: 0.6rem; align-items: flex-start;
+  }
+  .retainer-features li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  /* PROCESS */
+  .process { background: var(--white); }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0; margin-top: 4rem;
+    border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden;
+  }
+  .process-step {
+    background: var(--cream); padding: 2.5rem 2rem;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+  }
+  .process-step:last-child { border-right: none; }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem; color: rgba(46,55,254,0.12); line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; color: var(--black); }
+  .step-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
+
+  /* CTA BANNER */
+  .cta-banner {
+    background: var(--gold);
+    padding: 5rem 3rem; text-align: center;
+  }
+  .cta-banner h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: var(--white); line-height: 0.95; letter-spacing: 0.03em;
+    margin-bottom: 1.2rem;
+  }
+  .cta-banner p {
+    font-size: 1rem; color: rgba(255,255,255,0.75);
+    max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.6;
+  }
+  .btn-dark {
+    background: var(--black); color: var(--white);
+    padding: 1rem 2.4rem; font-size: 0.88rem;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    display: inline-block; transition: transform 0.2s, opacity 0.2s;
+  }
+  .btn-dark:hover { transform: translateY(-2px); opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black); padding: 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem; letter-spacing: 0.12em; color: var(--white);
+    text-decoration: none;
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-size: 0.78rem; color: rgba(255,255,255,0.4); text-decoration: none;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-verse {
+    font-size: 0.75rem; color: rgba(255,255,255,0.2);
+    font-style: italic; letter-spacing: 0.05em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .retainer-grid { grid-template-columns: 1fr; }
+    .packages-header { flex-direction: column; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-headline { animation: fadeUp 0.7s ease 0.25s both; }
+  .hero-sub { animation: fadeUp 0.7s ease 0.4s both; }
+  .hero-actions { animation: fadeUp 0.7s ease 0.55s both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Waymaker Studios</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#process">How It Works</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Waymaker Studios &mdash; Digital Creative Agency</div>
+    <h1 class="hero-headline">
+      Content that<br/><span>makes a way.</span>
+    </h1>
+    <p class="hero-sub">
+      Bring your ideas to life through visuals that resonate. We help small businesses share their story through consistent, strategic content — delivered fast, built to convert.
+    </p>
+    <div class="hero-actions">
+      <a href="#packages" class="btn-primary">View Packages</a>
+      <a href="#services" class="btn-outline">What We Do</a>
+    </div>
+  </div>
+  <div class="hero-ticker">
+    <div class="ticker-track">
+      <span>✦</span> Social Graphics &nbsp;&nbsp;<span>✦</span> Short-Form Video &nbsp;&nbsp;<span>✦</span> Landing Pages &nbsp;&nbsp;<span>✦</span> Brand Identity &nbsp;&nbsp;<span>✦</span> Event Content &nbsp;&nbsp;<span>✦</span> AI-Powered Speed &nbsp;&nbsp;
+      <span>✦</span> Social Graphics &nbsp;&nbsp;<span>✦</span> Short-Form Video &nbsp;&nbsp;<span>✦</span> Landing Pages &nbsp;&nbsp;<span>✦</span> Brand Identity &nbsp;&nbsp;<span>✦</span> Event Content &nbsp;&nbsp;<span>✦</span> AI-Powered Speed &nbsp;&nbsp;
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Three Core Services.</h2>
+  <p class="section-sub">From your first impression to your next campaign — every asset we build is designed to grow your brand and keep your audience coming back.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <div class="service-name">Social Graphics</div>
+      <p class="service-desc">Scroll-stopping branded graphics that tell your story and move your audience to action. Choose from our template library and we'll handle the rest.</p>
+      <span class="service-tag">Canva · Adobe</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎬</span>
+      <div class="service-name">Short-Form Video</div>
+      <p class="service-desc">Send us your footage and we'll turn it into polished, platform-ready content your audience won't scroll past. Fast turnaround, clean results — no creative burnout.</p>
+      <span class="service-tag">Reels · TikTok</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌐</span>
+      <div class="service-name">Landing Pages</div>
+      <p class="service-desc">A clean, conversion-focused page that shares your story and drives real results — whether it's a business launch, event, or offer. Built from proven templates with your brand applied.</p>
+      <span class="service-tag">Carrd · Framer · Webflow</span>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="packages-header">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Pick Your Package.</h2>
+    <p class="section-sub">Advertising-level quality without the long timeline or price tag. Every package includes a template selection process and fast delivery.</p>
+  </div>
+  <div class="packages-grid">
+
+    <!-- STARTER -->
+    <div class="pkg-card">
+      <div class="pkg-tier">Starter</div>
+      <div class="pkg-name">The Spark</div>
+      <div class="pkg-price"><sup>$</sup>100<span style="font-size:1rem;font-weight:300">&ndash;150</span></div>
+      <div class="pkg-price-note">One-time · Best for promos &amp; small events</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>3 branded social graphics</li>
+        <li>Template selection from our library</li>
+        <li>1 round of revisions</li>
+        <li>3–5 day turnaround</li>
+        <li class="muted">Short-form video</li>
+        <li class="muted">Landing page</li>
+      </ul>
+      <a href="#contact" class="pkg-cta pkg-cta-outline">Get Started</a>
+    </div>
+
+    <!-- LAUNCH -->
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-tier">Launch</div>
+      <div class="pkg-name">The Wave</div>
+      <div class="pkg-price"><sup>$</sup>300<span style="font-size:1rem;font-weight:300">&ndash;400</span></div>
+      <div class="pkg-price-note">One-time · Best for growing businesses &amp; events</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>8 branded social graphics</li>
+        <li>1 short-form video (template-based)</li>
+        <li>2 rounds of revisions</li>
+        <li>5–7 day turnaround</li>
+        <li>Caption &amp; text customization</li>
+        <li class="muted">Landing page</li>
+      </ul>
+      <a href="#contact" class="pkg-cta pkg-cta-filled">Get Started</a>
+    </div>
+
+    <!-- PRO -->
+    <div class="pkg-card">
+      <div class="pkg-tier">Pro</div>
+      <div class="pkg-name">The Movement</div>
+      <div class="pkg-price"><sup>$</sup>600<span style="font-size:1rem;font-weight:300">&ndash;800</span></div>
+      <div class="pkg-price-note">One-time · Best for full campaigns &amp; brand launches</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>15 branded social graphics</li>
+        <li>3 short-form videos (template-based)</li>
+        <li>1 landing page (template-based)</li>
+        <li>3 rounds of revisions</li>
+        <li>7–10 day turnaround</li>
+        <li>Caption &amp; text customization</li>
+      </ul>
+      <a href="#contact" class="pkg-cta pkg-cta-outline">Get Started</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons" id="addons">
+  <div class="section-label">Add-Ons</div>
+  <h2 class="section-title">Customize Your Order.</h2>
+  <p class="section-sub">Stack any of these onto your package — or book à la carte for one-off needs.</p>
+  <div class="addons-grid">
+    <div class="addon-item">
+      <span class="addon-emoji">📸</span>
+      <div class="addon-name">Photo/Video Shoot</div>
+      <div class="addon-price">$100–200</div>
+      <div class="addon-desc">Local 1–2 hr shoot. Ideal for product launches, events, and personal branding.</div>
+    </div>
+    <div class="addon-item">
+      <span class="addon-emoji">🎬</span>
+      <div class="addon-name">Extra Video</div>
+      <div class="addon-price">$50–75 each</div>
+      <div class="addon-desc">Additional short-form video on top of your package deliverables.</div>
+    </div>
+    <div class="addon-item">
+      <span class="addon-emoji">🖼️</span>
+      <div class="addon-name">Extra Graphics</div>
+      <div class="addon-price">$15–25 each</div>
+      <div class="addon-desc">Additional branded graphics beyond your package count.</div>
+    </div>
+    <div class="addon-item">
+      <span class="addon-emoji">📄</span>
+      <div class="addon-name">Extra Landing Page</div>
+      <div class="addon-price">$150–250</div>
+      <div class="addon-desc">A second page or standalone event/offer page.</div>
+    </div>
+    <div class="addon-item">
+      <span class="addon-emoji">⚡</span>
+      <div class="addon-name">Rush Delivery</div>
+      <div class="addon-price">+$50 flat</div>
+      <div class="addon-desc">Need it in under 48 hours? We've got you covered.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RETAINER -->
+<section class="retainer" id="retainer">
+  <div class="section-label">Monthly Retainers</div>
+  <h2 class="section-title">Stay Consistent.</h2>
+  <p class="section-sub">Every brand has a story worth telling — consistently. Lock in a monthly rate and keep your audience engaged week after week.</p>
+  <div class="retainer-grid">
+    <div class="retainer-card">
+      <div class="retainer-name">Base Retainer</div>
+      <div class="retainer-price">$250–350<span style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.35)">/mo</span></div>
+      <div class="retainer-cadence">Best for businesses starting to build their presence</div>
+      <ul class="retainer-features">
+        <li>8 branded social graphics/mo</li>
+        <li>1 short-form video/mo</li>
+        <li>Caption &amp; text customization</li>
+        <li>Monthly content planning check-in</li>
+      </ul>
+    </div>
+    <div class="retainer-card">
+      <div class="retainer-name">Growth Retainer</div>
+      <div class="retainer-price">$500–600<span style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.35)">/mo</span></div>
+      <div class="retainer-cadence">Best for businesses ready to scale visibility</div>
+      <ul class="retainer-features">
+        <li>15 branded social graphics/mo</li>
+        <li>3 short-form videos/mo</li>
+        <li>Landing page refresh (quarterly)</li>
+        <li>Priority turnaround</li>
+        <li>Monthly strategy &amp; content planning</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">Simple by Design.</h2>
+  <p class="section-sub">Our work is 100% strategic and intentional. No back-and-forth chaos — just a clean process that gets your content done right.</p>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Pick Your Package</div>
+      <p class="step-desc">Choose the package that fits your goals and budget. Not sure? We'll point you in the right direction.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Send Your Content</div>
+      <p class="step-desc">Submit your photos, videos, brand colors, or any existing assets. We take it from there.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Choose a Template</div>
+      <p class="step-desc">Browse our template library and pick a direction. Or let us recommend one based on your brand.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">We Deliver Fast</div>
+      <p class="step-desc">Sit back while we build. Your content is ready in days — not weeks — with revisions included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <h2>We'd Love to<br/>Work With You.</h2>
+  <p>Bring your ideas to life with visuals that resonate. Start with a package or reach out — we'll find the right fit for your business or event.</p>
+  <a href="/cdn-cgi/l/email-protection#ea828f868685aa9d8b93878b818f98999e9f8e838599c48985" class="btn-dark">Get Started Today</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="#">Waymaker Studios</a>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-verse">† John 14:6 &nbsp;·&nbsp; Waymaker
