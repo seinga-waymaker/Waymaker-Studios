@@ -583,11 +583,11 @@
   <p style="font-size:0.85rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:600px;margin:0 auto;">
     Looking for a <strong style="color:#fff;">custom logo or graphics project?</strong> These projects are handled separately.
     Reach out directly and we'll talk through your needs. &nbsp;
-    <a href="/cdn-cgi/l/email-protection#1665737f7871775661776f7b777d7364656263727f7965387579" style="color:#fff;font-weight:600;text-decoration:underline;"><span class="__cf_email__" data-cfemail="592a3c30373e38192e38203438323c2b2a2d2c3d30362a773a36">[email&#160;protected]</span> →</a>
+    <a href="mailto:seinga@waymakerstudios.co" style="color:#fff;font-weight:600;text-decoration:underline;">seinga@waymakerstudios.co →</a>
   </p>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const state = {
     service: null, package: null, style: null, addons: [], coverage: false
   };
@@ -753,4 +753,13 @@
       prog.classList.add('done');
     }
     document.getElementById('suc-service').textContent = state.service || '—';
-    document.getElementById('suc-
+    document.getElementById('suc-package').textContent = state.package || '—';
+    document.getElementById('suc-style').textContent = state.style || '—';
+    document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
+    document.getElementById('suc-email').textContent = document.getElementById('email').value;
+    document.getElementById('success').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
