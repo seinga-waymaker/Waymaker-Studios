@@ -681,7 +681,7 @@
       else if (i === step) prog.classList.add('active');
     }
 
-    if (step <= 5) {
+    if (step <= 6) {
       document.getElementById(`step-${step}`).classList.add('active');
     }
 
@@ -740,8 +740,9 @@
         alert('Something went wrong. Please try again.');
       }
     } catch(e) {
-      // For now show success anyway (no endpoint yet)
-      showSuccess();
+      btn.textContent = 'Submit →';
+      btn.disabled = false;
+      alert('Something went wrong. Please check your connection and try again.');
     }
   }
 
@@ -755,11 +756,4 @@
     document.getElementById('suc-service').textContent = state.service || '—';
     document.getElementById('suc-package').textContent = state.package || '—';
     document.getElementById('suc-style').textContent = state.style || '—';
-    document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
-    document.getElementById('suc-email').textContent = document.getElementById('email').value;
-    document.getElementById('success').classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-</body>
-</html>
+    document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lna
