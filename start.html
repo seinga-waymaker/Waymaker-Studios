@@ -83,7 +83,7 @@
   }
   .progress-steps {
     display: flex; align-items: center; justify-content: center;
-    gap: 0; max-width: 600px; margin: 0 auto;
+    gap: 0; max-width: 700px; margin: 0 auto;
   }
   .progress-step {
     display: flex; align-items: center; gap: 0.5rem;
@@ -159,7 +159,13 @@
     border-color: var(--blue);
     background: rgba(46,55,254,0.04);
   }
-  /* Add-on cards support multi-select */
+  .option-card.selected::after {
+    content: '✦';
+    position: absolute; top: 0.8rem; right: 0.8rem;
+    color: var(--blue); font-size: 0.6rem;
+  }
+
+  /* Add-on cards — support multi-select */
   .addon-card.selected {
     border-color: var(--blue);
     background: rgba(46,55,254,0.04);
@@ -169,11 +175,7 @@
     position: absolute; top: 0.8rem; right: 0.8rem;
     color: var(--blue); font-size: 0.6rem;
   }
-  .option-card.selected::after {
-    content: '✦';
-    position: absolute; top: 0.8rem; right: 0.8rem;
-    color: var(--blue); font-size: 0.6rem;
-  }
+
   .option-icon { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
   .option-name {
     font-family: 'Bebas Neue', sans-serif;
@@ -318,7 +320,6 @@
     <div class="start-eyebrow">Waymaker Studios</div>
     <h1>Start Your <span>Project.</span></h1>
     <p>Six quick steps. No guesswork. We'll be in touch within 24 hours.</p>
-
   </div>
 </section>
 
@@ -369,12 +370,12 @@
       <div class="option-card" data-step="1" data-value="Social Graphics" onclick="selectOption(this)">
         <span class="option-icon">🎨</span>
         <div class="option-name">Social Graphics</div>
-        <div class="option-desc">Branded graphics for social media, event fliers, promotions, and announcements.</div>
+        <div class="option-desc">Branded graphics for social media, promotions, and events.</div>
       </div>
       <div class="option-card" data-step="1" data-value="Short-Form Video" onclick="selectOption(this)">
         <span class="option-icon">🎬</span>
         <div class="option-name">Short-Form Video</div>
-        <div class="option-desc">Send your footage — we edit and deliver platform-ready short-form videos. No footage yet? Add an on-site shoot in Step 4.</div>
+        <div class="option-desc">Send your footage — we edit and deliver platform-ready Reels. No footage yet? Add an on-site shoot in Step 4.</div>
       </div>
       <div class="option-card" data-step="1" data-value="Web Page" onclick="selectOption(this)">
         <span class="option-icon">🌐</span>
@@ -391,7 +392,7 @@
       <div style="background:#f5f5f5;border-left:3px solid #2e37fe;border-radius:4px;padding:0.9rem 1.1rem;display:flex;align-items:flex-start;gap:0.75rem;">
         <span style="font-size:1.1rem;flex-shrink:0;margin-top:0.05rem;">📸</span>
         <p style="margin:0;font-size:0.8rem;color:#555;line-height:1.6;">
-          <strong style="color:#111;">Need photo or video coverage?</strong> We'll come to you before or during your event — product shoots, brand sessions or event coverage — so you can start promoting right away. <strong style="color:#2e37fe;">Select this add-on in Step 4.</strong>
+          <strong style="color:#111;">Need photo coverage?</strong> We offer professional photography for events, brand sessions, and product shoots. <strong style="color:#2e37fe;">Add Photography as an add-on in Step 4.</strong>
         </p>
       </div>
     </div>
@@ -406,7 +407,7 @@
     <h2 class="step-title" id="step2-title">Pick Your Package.</h2>
     <p class="step-sub" id="step2-sub">Choose the tier that fits your goals and budget.</p>
     <div class="options-grid" style="grid-template-columns: 1fr;" id="packages-container"></div>
-    <div class="btn-row">
+    <div class="btn-row" style="margin-top:2rem;">
       <button class="btn-next" id="next-2" onclick="goTo(3)" disabled>Next →</button>
       <button class="btn-back" onclick="goTo(1)">← Back</button>
     </div>
@@ -446,11 +447,11 @@
     <h2 class="step-title">Anything to Add?</h2>
     <p class="step-sub">Optional extras to round out your package. Select all that apply — or skip and move on.</p>
     <div class="options-grid cols-2">
-      <div class="option-card addon-card" data-addon="Event Photo/Video Shoot — +$100–200" onclick="toggleAddon(this)">
+      <div class="option-card addon-card" data-addon="Photography — Starting at +$150" onclick="toggleAddon(this)">
         <span class="option-icon">📸</span>
-        <div class="option-name">Event Photo/Video Shoot</div>
-        <div class="option-desc">On-site coverage at your event. We capture the moments so you have footage to work with.</div>
-        <div class="option-price">+$100–200</div>
+        <div class="option-name">Photography</div>
+        <div class="option-desc">Professional on-site photography for events, brand sessions, and product shoots. We'll confirm the exact scope with you.</div>
+        <div class="option-price">Starting at +$150</div>
       </div>
       <div class="option-card addon-card" data-addon="Extra Video — +$50–75 each" onclick="toggleAddon(this)">
         <span class="option-icon">🎬</span>
@@ -483,7 +484,7 @@
     </div>
   </div>
 
-  <!-- STEP 4: DETAILS -->
+  <!-- STEP 5: DETAILS -->
   <div class="step-panel" id="step-5">
     <div class="step-label">Step 5 of 6</div>
     <h2 class="step-title">Tell Us About You.</h2>
@@ -536,7 +537,7 @@
     </div>
   </div>
 
-  <!-- STEP 5: REVIEW -->
+  <!-- STEP 6: REVIEW -->
   <div class="step-panel" id="step-6">
     <div class="step-label">Step 6 of 6</div>
     <h2 class="step-title">Review & Submit.</h2>
@@ -546,7 +547,7 @@
       <div class="summary-row"><span>Service</span><span id="sum-service">—</span></div>
       <div class="summary-row"><span>Package</span><span id="sum-package">—</span></div>
       <div class="summary-row"><span>Style</span><span id="sum-style">—</span></div>
-      <div class="summary-row"><span>Add-Ons</span><span id="sum-addons">—</span></div>
+      <div class="summary-row"><span>Add-Ons</span><span id="sum-addons" style="max-width:60%;text-align:right;">—</span></div>
       <div class="summary-row"><span>Name</span><span id="sum-name">—</span></div>
       <div class="summary-row"><span>Email</span><span id="sum-email">—</span></div>
       <div class="summary-row"><span>Phone</span><span id="sum-phone">—</span></div>
@@ -581,7 +582,7 @@
 <!-- CUSTOM DESIGN NOTE -->
 <div style="background:#2e37fe;padding:2.5rem 2rem;text-align:center;">
   <p style="font-size:0.85rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:600px;margin:0 auto;">
-    Looking for a <strong style="color:#fff;">custom logo or graphics project?</strong> These projects are handled separately.
+    Looking to create a <strong style="color:#fff;">custom logo/branding</strong> or need <strong style="color:#fff;">photography only?</strong> These projects are handled separately.
     Reach out directly and we'll talk through your needs. &nbsp;
     <a href="mailto:seinga@waymakerstudios.co" style="color:#fff;font-weight:600;text-decoration:underline;">seinga@waymakerstudios.co →</a>
   </p>
@@ -589,7 +590,7 @@
 
 <script>
   const state = {
-    service: null, package: null, style: null, addons: [], coverage: false
+    service: null, package: null, style: null, addons: []
   };
 
   function toggleAddon(el) {
@@ -602,35 +603,33 @@
     }
   }
 
-  // Dynamic packages per service
+  // Dynamic packages per service (Photography removed — now add-on only)
   const packages = {
     'Short-Form Video': [
-      { name: 'The Spark', price: '$100–150', desc: '1 professionally edited short-form video. Your footage, our edit. Perfect for a single promo or event highlight.', deliverables: '1 short-form video · 1 revision · 3–5 day turnaround', tag: '' },
-      { name: 'The Wave', price: '$300–400', desc: '3 short-form videos, style-matched for cohesive branding across your feed. More reach, more impact.', deliverables: '3 short-form videos · 2 revisions · 5–7 day turnaround', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$600–800', desc: 'A full short-form video campaign. 5–6 short-form videos with a content strategy call to plan the rollout.', deliverables: '5–6 short-form videos · 3 revisions · 7–10 day turnaround · Strategy call', tag: '' },
-      { name: 'Monthly Retainer', price: '$250–600/mo', desc: 'Consistent video content every month. Stay visible without thinking about it.', deliverables: '4–8 short-form videos/mo · Ongoing revisions · Priority turnaround', tag: '' },
+      { name: 'The Spark', price: '$125', desc: '1 professionally edited Reel. Your footage, our edit. Perfect for a single promo or event highlight.', deliverables: '1 Reel · 1 revision · 3–5 day turnaround', tag: '' },
+      { name: 'The Wave', price: '$350', desc: '3 edited Reels, style-matched for cohesive branding across your feed. More reach, more impact.', deliverables: '3 Reels · 2 revisions · 5–7 day turnaround', tag: 'Most Popular' },
+      { name: 'The Movement', price: '$700', desc: 'A full short-form video campaign. 5–6 Reels with a content strategy call to plan the rollout.', deliverables: '5–6 Reels · 3 revisions · 7–10 day turnaround · Strategy call', tag: '' },
+      { name: 'Monthly Retainer', price: '$400/mo', desc: 'Consistent video content every month. Stay visible without thinking about it.', deliverables: '4–8 Reels/mo · Ongoing revisions · Priority turnaround', tag: '' },
     ],
     'Social Graphics': [
-      { name: 'The Spark', price: '$100–150', desc: '3–5 branded graphics for social media. Great for a single campaign, event, or promo push.', deliverables: '3–5 graphics · 1 revision · 48hr turnaround', tag: '' },
-      { name: 'The Wave', price: '$300–400', desc: '10 branded graphics with templates you can reuse. Consistent branding across all your platforms.', deliverables: '10 graphics · Reusable templates · 2 revisions · 5 day turnaround', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$600–800', desc: 'A full social graphics kit — posts, stories, covers, and event fliers. Everything in one brand voice.', deliverables: '20+ graphics · Full kit · 3 revisions · 7–10 day turnaround', tag: '' },
-      { name: 'Monthly Retainer', price: '$250–600/mo', desc: 'Fresh branded graphics delivered every month. Never run out of content again.', deliverables: '12–20 graphics/mo · Ongoing revisions · Priority turnaround', tag: '' },
+      { name: 'The Spark', price: '$125', desc: '3–5 branded graphics for social media. Great for a single campaign, event, or promo push.', deliverables: '3–5 graphics · 1 revision · 48hr turnaround', tag: '' },
+      { name: 'The Wave', price: '$350', desc: '10 branded graphics with templates you can reuse. Consistent branding across all your platforms.', deliverables: '10 graphics · Reusable templates · 2 revisions · 5 day turnaround', tag: 'Most Popular' },
+      { name: 'The Movement', price: '$700', desc: 'A full social graphics kit — posts, stories, covers, and event fliers. Everything in one brand voice.', deliverables: '20+ graphics · Full kit · 3 revisions · 7–10 day turnaround', tag: '' },
+      { name: 'Monthly Retainer', price: '$400/mo', desc: 'Fresh branded graphics delivered every month. Never run out of content again.', deliverables: '12–20 graphics/mo · Ongoing revisions · Priority turnaround', tag: '' },
     ],
     'Web Page': [
-      { name: 'The Spark', price: '$100–150', desc: 'A clean, focused one-page site for your business or event. Built to convert visitors into leads.', deliverables: '1-page build · 1 revision · 5 day turnaround', tag: '' },
-      { name: 'The Wave', price: '$300–400', desc: 'A landing page plus matching social graphics to drive traffic to it. A complete campaign-ready pair.', deliverables: 'Landing page · 5 matching graphics · 2 revisions · 7 day turnaround', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$600–800', desc: 'A full conversion funnel — landing page, social graphics, and a promo video to drive traffic.', deliverables: 'Landing page · 10 graphics · 1 short-form video · 3 revisions · 10 day turnaround', tag: '' },
-      { name: 'Monthly Retainer', price: '$250–600/mo', desc: 'Monthly page updates plus fresh content to keep your site and socials current.', deliverables: 'Page updates · Monthly graphics · Priority support', tag: '' },
+      { name: 'The Spark', price: '$125', desc: 'A clean, focused one-page site for your business or event. Built to convert visitors into leads.', deliverables: '1-page build · 1 revision · 5 day turnaround', tag: '' },
+      { name: 'The Wave', price: '$350', desc: 'A landing page plus matching social graphics to drive traffic to it. A complete campaign-ready pair.', deliverables: 'Landing page · 5 matching graphics · 2 revisions · 7 day turnaround', tag: 'Most Popular' },
+      { name: 'The Movement', price: '$700', desc: 'A full conversion funnel — landing page, social graphics, and a promo Reel to drive traffic.', deliverables: 'Landing page · 10 graphics · 1 Reel · 3 revisions · 10 day turnaround', tag: '' },
+      { name: 'Monthly Retainer', price: '$400/mo', desc: 'Monthly page updates plus fresh content to keep your site and socials current.', deliverables: 'Page updates · Monthly graphics · Priority support', tag: '' },
     ],
     'Full Package': [
-      { name: 'The Spark', price: '$100–150', desc: 'A starter bundle to test the waters — one graphic set plus a short-form video to get you moving.', deliverables: '3 graphics · 1 short-form video · 1 revision · 5 day turnaround', tag: '' },
-      { name: 'The Wave', price: '$300–400', desc: 'Graphics, video, and a landing page working together. The full picture for a campaign or event.', deliverables: '5 graphics · 2 short-form videos · Landing page · 2 revisions', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$600–800', desc: 'The complete content package. Everything you need to launch, promote, and sustain a brand presence.', deliverables: '15+ graphics · 5 short-form videos · Landing page · Strategy call · 3 revisions', tag: '' },
-      { name: 'Monthly Retainer', price: '$500–600/mo', desc: 'Full ongoing content support — graphics, video, and page updates on a recurring monthly basis.', deliverables: 'Monthly graphics + short-form videos + page updates · Priority turnaround', tag: '' },
+      { name: 'The Spark', price: '$125', desc: 'A starter bundle to test the waters — one graphic set plus a short Reel to get you moving.', deliverables: '3 graphics · 1 Reel · 1 revision · 5 day turnaround', tag: '' },
+      { name: 'The Wave', price: '$350', desc: 'Graphics, video, and a landing page working together. The full picture for a campaign or event.', deliverables: '5 graphics · 2 Reels · Landing page · 2 revisions', tag: 'Most Popular' },
+      { name: 'The Movement', price: '$700', desc: 'The complete content package. Everything you need to launch, promote, and sustain a brand presence.', deliverables: '15+ graphics · 5 Reels · Landing page · Strategy call · 3 revisions', tag: '' },
+      { name: 'Monthly Retainer', price: '$550/mo', desc: 'Full ongoing content support — graphics, video, and page updates on a recurring monthly basis.', deliverables: 'Monthly graphics + Reels + page updates · Priority turnaround', tag: '' },
     ],
   };
-
-
 
   function buildPackages(service) {
     const container = document.getElementById('packages-container');
@@ -693,9 +692,9 @@
     // Populate summary on step 6
     if (step === 6) {
       document.getElementById('sum-service').textContent = state.service || '—';
-      document.getElementById('sum-addons').textContent = state.addons.length ? state.addons.join(', ') : 'None';
       document.getElementById('sum-package').textContent = state.package || '—';
       document.getElementById('sum-style').textContent = state.style || '—';
+      document.getElementById('sum-addons').textContent = state.addons.length ? state.addons.join(', ') : 'None';
       document.getElementById('sum-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
       document.getElementById('sum-email').textContent = document.getElementById('email').value;
       document.getElementById('sum-phone').textContent = document.getElementById('phone').value || '—';
@@ -756,4 +755,12 @@
     document.getElementById('suc-service').textContent = state.service || '—';
     document.getElementById('suc-package').textContent = state.package || '—';
     document.getElementById('suc-style').textContent = state.style || '—';
-    document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lna
+    document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
+    document.getElementById('suc-email').textContent = document.getElementById('email').value;
+    document.getElementById('success').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
