@@ -27,7 +27,6 @@
     min-height: 100vh;
   }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
@@ -45,7 +44,6 @@
   }
   .nav-back:hover { opacity: 1; color: var(--blue); }
 
-  /* HERO */
   .start-hero {
     background: #000000;
     padding: 7rem 3rem 3.5rem;
@@ -70,19 +68,9 @@
   .start-hero h1 span { color: var(--blue); }
   .start-hero p {
     font-size: 0.95rem; color: rgba(255,255,255,0.85);
-    max-width: 460px; margin: 0 auto 1.4rem; line-height: 1.6;
+    max-width: 460px; margin: 0 auto; line-height: 1.6;
   }
-  .hero-consult-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(46,55,254,0.15);
-    border: 1px solid rgba(46,55,254,0.4);
-    border-radius: 2rem; padding: 0.45rem 1.1rem;
-    font-size: 0.75rem; font-weight: 500;
-    color: rgba(255,255,255,0.8); letter-spacing: 0.03em;
-  }
-  .hero-consult-badge strong { color: #fff; font-weight: 700; }
 
-  /* PROGRESS */
   .progress-bar {
     background: var(--cream); padding: 1.2rem 3rem;
     border-bottom: 1px solid var(--border);
@@ -111,7 +99,6 @@
   .progress-step.done .progress-num { background: var(--black); color: var(--white); }
   .progress-line { height: 1px; flex: 0.3; background: rgba(26,26,26,0.1); }
 
-  /* FLOW */
   .flow { max-width: 700px; margin: 0 auto; padding: 3rem 2rem 6rem; }
 
   .step-panel { display: none; animation: fadeUp 0.4s ease both; }
@@ -134,7 +121,6 @@
   }
   .step-sub { font-size: 0.9rem; color: #111; margin-bottom: 2.5rem; line-height: 1.6; }
 
-  /* CARDS */
   .options-grid { display: grid; gap: 1rem; margin-bottom: 2rem; }
   .options-grid.cols-2 { grid-template-columns: 1fr 1fr; }
   .options-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -147,12 +133,15 @@
   }
   .option-card:hover { border-color: rgba(46,55,254,0.4); transform: translateY(-2px); }
   .option-card.selected { border-color: var(--blue); background: rgba(46,55,254,0.04); }
-  .option-card.selected::after,
-  .addon-card.selected::after {
+  .option-card.selected::after {
     content: '✦'; position: absolute; top: 0.8rem; right: 0.8rem;
     color: var(--blue); font-size: 0.6rem;
   }
   .addon-card.selected { border-color: var(--blue); background: rgba(46,55,254,0.04); }
+  .addon-card.selected::after {
+    content: '✦'; position: absolute; top: 0.8rem; right: 0.8rem;
+    color: var(--blue); font-size: 0.6rem;
+  }
 
   .option-icon { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
   .option-name {
@@ -168,7 +157,6 @@
     padding: 0.2rem 0.5rem; border-radius: 0 0 2px 2px;
   }
 
-  /* FORMS */
   .form-grid { display: grid; gap: 1rem; margin-bottom: 2rem; }
   .form-grid.cols-2 { grid-template-columns: 1fr 1fr; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -190,7 +178,6 @@
   .form-group textarea::placeholder { color: rgba(26,26,26,0.35); }
   .form-group textarea { resize: vertical; min-height: 100px; }
 
-  /* SUMMARY */
   .summary-box {
     background: var(--cream); border: 1px solid var(--border);
     border-radius: 4px; padding: 1.5rem; margin-bottom: 2rem;
@@ -207,7 +194,6 @@
   .summary-row span:first-child { color: var(--muted); }
   .summary-row span:last-child { font-weight: 500; color: var(--black); }
 
-  /* BUTTONS */
   .btn-row { display: flex; gap: 1rem; align-items: center; }
   .btn-next {
     background: var(--blue); color: var(--white); border: none;
@@ -216,7 +202,7 @@
     text-transform: uppercase; border-radius: 2px; cursor: pointer;
     transition: background 0.2s, transform 0.2s; display: inline-block;
   }
-  .btn-next:hover { background: var(--blue-light); transform: translateY(-2px); }
+  .btn-next:hover:not(:disabled) { background: var(--blue-light); transform: translateY(-2px); }
   .btn-next:disabled { background: rgba(26,26,26,0.2); cursor: not-allowed; transform: none; }
   .btn-back {
     background: none; border: none; cursor: pointer;
@@ -226,7 +212,6 @@
   }
   .btn-back:hover { color: var(--black); }
 
-  /* SUCCESS */
   .success-panel { display: none; text-align: center; padding: 3rem 0; }
   .success-panel.active { display: block; animation: fadeUp 0.5s ease both; }
   .success-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; }
@@ -246,7 +231,11 @@
   }
   .success-next-step-icon { font-size: 1.4rem; flex-shrink: 0; padding-top: 0.1rem; }
   .success-next-step-body { font-size: 0.83rem; color: #333; line-height: 1.65; }
-  .success-next-step-body strong { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); margin-bottom: 0.3rem; }
+  .success-next-step-body strong {
+    display: block; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--black); margin-bottom: 0.3rem;
+  }
   .success-summary {
     background: var(--blue); border-radius: 4px;
     padding: 1.8rem; margin: 0 0 2rem; text-align: left;
@@ -285,18 +274,15 @@
   <a class="nav-back" href="index.html">← Back to Site</a>
 </nav>
 
-<!-- HERO -->
 <section class="start-hero">
   <div class="start-hero-bg"></div>
   <div class="start-hero-inner">
     <div class="start-eyebrow">Waymaker Studios</div>
     <h1>Start Your <span>Project.</span></h1>
     <p>Six quick steps. No guesswork. We'll review your project and schedule a quick alignment call within 24 hours.</p>
-
   </div>
 </section>
 
-<!-- PROGRESS -->
 <div class="progress-bar">
   <div class="progress-steps">
     <div class="progress-step active" id="prog-1"><div class="progress-num">1</div><span>Service</span></div>
@@ -313,7 +299,6 @@
   </div>
 </div>
 
-<!-- FLOW -->
 <div class="flow">
 
   <!-- STEP 1: SERVICE -->
@@ -321,23 +306,23 @@
     <div class="step-label">Step 1 of 6</div>
     <h2 class="step-title">What do you need?</h2>
     <p class="step-sub">Pick the service that fits your project. Not sure? Choose Full Package.</p>
-    <div class="options-grid cols-2">
-      <div class="option-card" data-step="1" data-value="Social Graphics" onclick="selectOption(this)">
+    <div class="options-grid cols-2" id="service-grid">
+      <div class="option-card" data-step="1" data-value="Social Graphics">
         <span class="option-icon">🎨</span>
         <div class="option-name">Social Graphics</div>
         <div class="option-desc">Branded graphics for social media, event fliers, promotions, and announcements.</div>
       </div>
-      <div class="option-card" data-step="1" data-value="Short-Form Video" onclick="selectOption(this)">
+      <div class="option-card" data-step="1" data-value="Short-Form Video">
         <span class="option-icon">🎬</span>
         <div class="option-name">Short-Form Video</div>
         <div class="option-desc">Send your footage — we edit and deliver platform-ready short-form videos. No footage yet? Add an on-site shoot in Step 4.</div>
       </div>
-      <div class="option-card" data-step="1" data-value="Web Page" onclick="selectOption(this)">
+      <div class="option-card" data-step="1" data-value="Web Page">
         <span class="option-icon">🌐</span>
         <div class="option-name">Web Page</div>
         <div class="option-desc">A landing page, YouTube channel, Facebook page, link-in-bio hub, or event page — built clean and branded fast.</div>
       </div>
-      <div class="option-card" data-step="1" data-value="Full Package" onclick="selectOption(this)">
+      <div class="option-card" data-step="1" data-value="Full Package">
         <span class="option-icon">💎</span>
         <div class="option-name">Full Package</div>
         <div class="option-desc">Graphics + video + web page — everything in one go. Need content every month? You'll choose a retainer in the next step.</div>
@@ -347,24 +332,24 @@
       <div style="background:#f5f5f5;border-left:3px solid #2e37fe;border-radius:4px;padding:0.9rem 1.1rem;display:flex;align-items:flex-start;gap:0.75rem;">
         <span style="font-size:1.1rem;flex-shrink:0;margin-top:0.05rem;">📸</span>
         <p style="margin:0;font-size:0.8rem;color:#555;line-height:1.6;">
-          <strong style="color:#111;">Need photo or video coverage?</strong> We'll come to you before or during your event — product shoots, brand sessions or event coverage — so you can start promoting right away. <strong style="color:#2e37fe;">Select this add-on in Step 4.</strong>
+          <strong style="color:#111;">Need photo or video coverage?</strong> We'll come to you before or during your event — product shoots, brand sessions or event coverage. <strong style="color:#2e37fe;">Select this add-on in Step 4.</strong>
         </p>
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn-next" id="next-1" onclick="goTo(2)" disabled>Next →</button>
+      <button class="btn-next" id="next-1" disabled>Next &#8594;</button>
     </div>
   </div>
 
   <!-- STEP 2: PACKAGE -->
   <div class="step-panel" id="step-2">
     <div class="step-label">Step 2 of 6</div>
-    <h2 class="step-title" id="step2-title">Pick Your Package.</h2>
-    <p class="step-sub" id="step2-sub">Choose the tier that fits your goals and budget.</p>
+    <h2 class="step-title">Pick Your Package.</h2>
+    <p class="step-sub">Choose the tier that fits your goals and budget.</p>
     <div class="options-grid" style="grid-template-columns:1fr;" id="packages-container"></div>
     <div class="btn-row">
-      <button class="btn-next" id="next-2" onclick="goTo(3)" disabled>Next →</button>
-      <button class="btn-back" onclick="goTo(1)">← Back</button>
+      <button class="btn-next" id="next-2" disabled>Next &#8594;</button>
+      <button class="btn-back" id="back-2">&#8592; Back</button>
     </div>
   </div>
 
@@ -373,26 +358,26 @@
     <div class="step-label">Step 3 of 6</div>
     <h2 class="step-title">Choose Your Style.</h2>
     <p class="step-sub">Pick the vibe that fits your brand. This guides the look and feel of everything we create.</p>
-    <div class="options-grid cols-3">
-      <div class="option-card" data-step="3" data-value="Energetic" onclick="selectOption(this)">
-        <span class="option-icon">⚡</span>
+    <div class="options-grid cols-3" id="style-grid">
+      <div class="option-card" data-step="3" data-value="Energetic">
+        <span class="option-icon">&#9889;</span>
         <div class="option-name">Energetic</div>
         <div class="option-desc">Bold, fast, high-impact. Best for events, launches, and hype.</div>
       </div>
-      <div class="option-card" data-step="3" data-value="Informative" onclick="selectOption(this)">
-        <span class="option-icon">📋</span>
+      <div class="option-card" data-step="3" data-value="Informative">
+        <span class="option-icon">&#128203;</span>
         <div class="option-name">Informative</div>
         <div class="option-desc">Clear, structured, text-forward. Best for services and promos.</div>
       </div>
-      <div class="option-card" data-step="3" data-value="Behind-the-Scenes" onclick="selectOption(this)">
-        <span class="option-icon">🎬</span>
+      <div class="option-card" data-step="3" data-value="Behind-the-Scenes">
+        <span class="option-icon">&#127916;</span>
         <div class="option-name">Behind-the-Scenes</div>
         <div class="option-desc">Warm, candid, story-driven. Best for brand trust and culture.</div>
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn-next" id="next-3" onclick="goTo(4)" disabled>Next →</button>
-      <button class="btn-back" onclick="goTo(2)">← Back</button>
+      <button class="btn-next" id="next-3" disabled>Next &#8594;</button>
+      <button class="btn-back" id="back-3">&#8592; Back</button>
     </div>
   </div>
 
@@ -401,47 +386,47 @@
     <div class="step-label">Step 4 of 6</div>
     <h2 class="step-title">Anything to Add?</h2>
     <p class="step-sub">Optional extras to round out your package. Select all that apply — or skip and move on.</p>
-    <div class="options-grid cols-2">
-      <div class="option-card addon-card" data-addon="Event Photo/Video Shoot — +$100–200" onclick="toggleAddon(this)">
-        <span class="option-icon">📸</span>
+    <div class="options-grid cols-2" id="addon-grid">
+      <div class="option-card addon-card" data-addon="Event Photo/Video Shoot — +$100-200">
+        <span class="option-icon">&#128248;</span>
         <div class="option-name">Event Photo/Video Shoot</div>
         <div class="option-desc">On-site coverage at your event. We capture the moments so you have footage to work with.</div>
-        <div class="option-price">+$100–200</div>
+        <div class="option-price">+$100&#8211;200</div>
       </div>
-      <div class="option-card addon-card" data-addon="Extra Video — +$85 each" onclick="toggleAddon(this)">
-        <span class="option-icon">🎬</span>
+      <div class="option-card addon-card" data-addon="Extra Video — +$85 each">
+        <span class="option-icon">&#127916;</span>
         <div class="option-name">Extra Video</div>
         <div class="option-desc">Additional short-form video on top of your package deliverables.</div>
         <div class="option-price">+$85 each</div>
       </div>
-      <div class="option-card addon-card" data-addon="Extra Graphics — +$15–25 each" onclick="toggleAddon(this)">
-        <span class="option-icon">🖼️</span>
+      <div class="option-card addon-card" data-addon="Extra Graphics — +$15-25 each">
+        <span class="option-icon">&#128444;&#65039;</span>
         <div class="option-name">Extra Graphics</div>
         <div class="option-desc">Additional branded graphics beyond your package count.</div>
-        <div class="option-price">+$15–25 each</div>
+        <div class="option-price">+$15&#8211;25 each</div>
       </div>
-      <div class="option-card addon-card" data-addon="Extra Web Page — +$150–250" onclick="toggleAddon(this)">
-        <span class="option-icon">📄</span>
+      <div class="option-card addon-card" data-addon="Extra Web Page — +$150-250">
+        <span class="option-icon">&#128196;</span>
         <div class="option-name">Extra Web Page</div>
         <div class="option-desc">A second page or standalone event/offer page added to your build.</div>
-        <div class="option-price">+$150–250</div>
+        <div class="option-price">+$150&#8211;250</div>
       </div>
-      <div class="option-card addon-card" data-addon="Platform Setup & Optimization — +$75 per platform" onclick="toggleAddon(this)">
-        <span class="option-icon">⚙️</span>
-        <div class="option-name">Platform Setup & Optimization</div>
+      <div class="option-card addon-card" data-addon="Platform Setup and Optimization — +$75 per platform">
+        <span class="option-icon">&#9881;&#65039;</span>
+        <div class="option-name">Platform Setup &amp; Optimization</div>
         <div class="option-desc">We set up and optimize your profile on any platform — YouTube, Instagram, Facebook, TikTok, or LinkedIn.</div>
         <div class="option-price">+$75 per platform</div>
       </div>
-      <div class="option-card addon-card" data-addon="Rush Delivery — +$50 flat" onclick="toggleAddon(this)">
-        <span class="option-icon">⚡</span>
+      <div class="option-card addon-card" data-addon="Rush Delivery — +$50 flat">
+        <span class="option-icon">&#9889;</span>
         <div class="option-name">Rush Delivery</div>
         <div class="option-desc">Need it in under 48 hours? We'll prioritize your project.</div>
         <div class="option-price">+$50 flat</div>
       </div>
     </div>
     <div class="btn-row" style="margin-top:2rem;">
-      <button class="btn-next" onclick="goTo(5)">Next →</button>
-      <button class="btn-back" onclick="goTo(3)">← Back</button>
+      <button class="btn-next" id="next-4">Next &#8594;</button>
+      <button class="btn-back" id="back-4">&#8592; Back</button>
     </div>
   </div>
 
@@ -453,17 +438,17 @@
     <div class="form-grid cols-2">
       <div class="form-group">
         <label>First Name</label>
-        <input type="text" id="fname" placeholder="Jane" oninput="validateStep5()"/>
+        <input type="text" id="fname" placeholder="Jane"/>
       </div>
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" id="lname" placeholder="Smith" oninput="validateStep5()"/>
+        <input type="text" id="lname" placeholder="Smith"/>
       </div>
     </div>
     <div class="form-grid cols-2">
       <div class="form-group">
         <label>Email</label>
-        <input type="email" id="email" placeholder="jane@yourbrand.com" oninput="validateStep5()"/>
+        <input type="email" id="email" placeholder="jane@yourbrand.com"/>
       </div>
       <div class="form-group">
         <label>Phone</label>
@@ -473,7 +458,7 @@
     <div class="form-grid">
       <div class="form-group">
         <label>Business / Brand / Event Name</label>
-        <input type="text" id="bizname" placeholder="Your brand or event name" oninput="validateStep5()"/>
+        <input type="text" id="bizname" placeholder="Your brand or event name"/>
       </div>
     </div>
     <div class="form-grid cols-2">
@@ -493,207 +478,252 @@
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn-next" id="next-5" onclick="goTo(6)" disabled>Review My Order →</button>
-      <button class="btn-back" onclick="goTo(4)">← Back</button>
+      <button class="btn-next" id="next-5" disabled>Review My Order &#8594;</button>
+      <button class="btn-back" id="back-5">&#8592; Back</button>
     </div>
   </div>
 
   <!-- STEP 6: REVIEW -->
   <div class="step-panel" id="step-6">
     <div class="step-label">Step 6 of 6</div>
-    <h2 class="step-title">Review & Submit.</h2>
+    <h2 class="step-title">Review &amp; Submit.</h2>
     <p class="step-sub">Double-check your selections before we get started.</p>
     <div class="summary-box">
       <h3>Your Order Summary</h3>
-      <div class="summary-row"><span>Service</span><span id="sum-service">—</span></div>
-      <div class="summary-row"><span>Package</span><span id="sum-package">—</span></div>
-      <div class="summary-row"><span>Style</span><span id="sum-style">—</span></div>
-      <div class="summary-row"><span>Add-Ons</span><span id="sum-addons">—</span></div>
-      <div class="summary-row"><span>Name</span><span id="sum-name">—</span></div>
-      <div class="summary-row"><span>Email</span><span id="sum-email">—</span></div>
-      <div class="summary-row"><span>Phone</span><span id="sum-phone">—</span></div>
-      <div class="summary-row"><span>Business / Event</span><span id="sum-biz">—</span></div>
-      <div class="summary-row"><span>Deadline</span><span id="sum-deadline">—</span></div>
-      <div class="summary-row"><span>Assets Link</span><span id="sum-assets">—</span></div>
-      <div class="summary-row"><span>Project Details</span><span id="sum-details" style="max-width:60%;text-align:right;">—</span></div>
+      <div class="summary-row"><span>Service</span><span id="sum-service">&#8212;</span></div>
+      <div class="summary-row"><span>Package</span><span id="sum-package">&#8212;</span></div>
+      <div class="summary-row"><span>Style</span><span id="sum-style">&#8212;</span></div>
+      <div class="summary-row"><span>Add-Ons</span><span id="sum-addons">&#8212;</span></div>
+      <div class="summary-row"><span>Name</span><span id="sum-name">&#8212;</span></div>
+      <div class="summary-row"><span>Email</span><span id="sum-email">&#8212;</span></div>
+      <div class="summary-row"><span>Phone</span><span id="sum-phone">&#8212;</span></div>
+      <div class="summary-row"><span>Business / Event</span><span id="sum-biz">&#8212;</span></div>
+      <div class="summary-row"><span>Deadline</span><span id="sum-deadline">&#8212;</span></div>
+      <div class="summary-row"><span>Assets Link</span><span id="sum-assets">&#8212;</span></div>
+      <div class="summary-row"><span>Project Details</span><span id="sum-details" style="max-width:60%;text-align:right;">&#8212;</span></div>
     </div>
     <div class="btn-row">
-      <button class="btn-next" id="submit-btn" onclick="submitForm()">Submit →</button>
-      <button class="btn-back" onclick="goTo(5)">← Edit</button>
+      <button class="btn-next" id="submit-btn">Submit &#8594;</button>
+      <button class="btn-back" id="back-6">&#8592; Edit</button>
     </div>
   </div>
 
   <!-- SUCCESS -->
   <div class="success-panel" id="success">
-    <span class="success-icon">✦</span>
+    <span class="success-icon">&#10022;</span>
     <h2>You're All Set.</h2>
     <p>We've received your project details and will be in touch within 24 hours.</p>
-
     <div class="success-next-step">
-      <div class="success-next-step-icon">📞</div>
+      <div class="success-next-step-icon">&#128222;</div>
       <div class="success-next-step-body">
         <strong>What happens next</strong>
         We'll review your submission and reach out to schedule a quick alignment call — no obligation, no pressure. It's a chance to talk through your vision before anything gets started.
       </div>
     </div>
-
     <div class="success-summary">
-      <div class="summary-row"><span>Service</span><span id="suc-service">—</span></div>
-      <div class="summary-row"><span>Package</span><span id="suc-package">—</span></div>
-      <div class="summary-row"><span>Style</span><span id="suc-style">—</span></div>
-      <div class="summary-row"><span>Name</span><span id="suc-name">—</span></div>
-      <div class="summary-row"><span>Email</span><span id="suc-email">—</span></div>
+      <div class="summary-row"><span>Service</span><span id="suc-service">&#8212;</span></div>
+      <div class="summary-row"><span>Package</span><span id="suc-package">&#8212;</span></div>
+      <div class="summary-row"><span>Style</span><span id="suc-style">&#8212;</span></div>
+      <div class="summary-row"><span>Name</span><span id="suc-name">&#8212;</span></div>
+      <div class="summary-row"><span>Email</span><span id="suc-email">&#8212;</span></div>
     </div>
-    <a href="index.html" class="btn-home">← Back to Waymaker Studios</a>
+    <a href="index.html" class="btn-home">&#8592; Back to Waymaker Studios</a>
   </div>
 
 </div>
 
-<!-- FOOTER CALLOUT -->
 <div style="background:#2e37fe;padding:2.5rem 2rem;text-align:center;">
   <p style="font-size:0.85rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:600px;margin:0 auto;">
     Looking for a <strong style="color:#fff;">custom logo or graphics project?</strong> These projects are handled separately.
     Reach out directly and we'll talk through your needs. &nbsp;
-    <a href="/cdn-cgi/l/email-protection#f586909c9b9294b582948c98949e9087868180919c9a86db969a" style="color:#fff;font-weight:600;text-decoration:underline;"><span class="__cf_email__" data-cfemail="e19284888f8680a19680988c808a849392959485888e92cf828e">[email&#160;protected]</span> →</a>
+    <a href="mailto:seinga@waymakerstudios.co" style="color:#fff;font-weight:600;text-decoration:underline;">seinga@waymakerstudios.co &#8594;</a>
   </p>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const state = { service: null, package: null, style: null, addons: [] };
+<script>
+(function() {
 
-function toggleAddon(el) {
-  const val = el.dataset.addon;
-  el.classList.toggle('selected');
-  if (el.classList.contains('selected')) {
-    if (!state.addons.includes(val)) state.addons.push(val);
-  } else {
-    state.addons = state.addons.filter(a => a !== val);
+  var state = { service: null, pkg: null, style: null, addons: [] };
+
+  var packageData = {
+    'Social Graphics': [
+      { name: 'The Spark', price: '$100\u2013150', desc: '3\u20135 branded graphics for social media. Great for a single campaign, event, or promo push.', deliverables: '3\u20135 graphics \u00b7 1 revision \u00b7 48hr turnaround', tag: '' },
+      { name: 'The Wave', price: '$275\u2013400', desc: '10 branded graphics with templates you can reuse. Consistent branding across all your platforms.', deliverables: '10 graphics \u00b7 Reusable templates \u00b7 2 revisions \u00b7 5 day turnaround', tag: 'Most Popular' },
+      { name: 'The Movement', price: '$600\u2013800', desc: 'A full social graphics kit \u2014 posts, stories, covers, and event fliers. Everything in one brand voice.', deliverables: '20+ graphics \u00b7 Full kit \u00b7 3 revisions \u00b7 7\u201310 day turnaround', tag: '' },
+      { name: 'Monthly Retainer', price: "Custom \u2014 let\u2019s talk", desc: 'Fresh branded graphics delivered every month. Never run out of content again.', deliverables: '12\u201320 graphics/mo \u00b7 Ongoing revisions \u00b7 Priority turnaround', tag: '' }
+    ],
+    'Short-Form Video': [
+      { name: 'The Spark', price: '$100\u2013150', desc: '1 professionally edited short-form video. Your footage, our edit. Perfect for a single promo or event highlight.', deliverables: '1 short-form video \u00b7 1 revision \u00b7 3\u20135 day turnaround', tag: '' },
+      { name: 'The Wave', price: '$265\u2013400', desc: '3 short-form videos, style-matched for cohesive branding across your feed.', deliverables: '3 short-form videos \u00b7 2 revisions \u00b7 5\u20137 day turnaround', tag: 'Most Popular' },
+      { name: 'The Movement', price: '$600\u2013800', desc: 'A full short-form video campaign with a content strategy call to plan the rollout.', deliverables: '5\u20136 short-form videos \u00b7 3 revisions \u00b7 7\u201310 day turnaround \u00b7 Strategy call', tag: '' },
+      { name: 'Monthly Retainer', price: "Custom \u2014 let\u2019s talk", desc: 'Consistent video content every month. Stay visible without thinking about it.', deliverables: '4\u20138 short-form videos/mo \u00b7 Ongoing revisions \u00b7 Priority turnaround', tag: '' }
+    ],
+    'Web Page': [
+      { name: 'The Spark', price: '$150\u2013350', desc: 'One page, built for wherever your audience is. Choose your type: website landing page, YouTube channel, Facebook page, link-in-bio hub, or event page.', deliverables: '1 page (your choice of type) \u00b7 1 revision \u00b7 5 day turnaround', tag: '' },
+      { name: 'The Wave', price: '$300\u2013500', desc: 'Two pages built and branded together \u2014 plus matching social graphics to drive traffic to them.', deliverables: '2 pages \u00b7 Matching branded graphics \u00b7 2 revisions \u00b7 7 day turnaround', tag: 'Most Popular' },
+      { name: 'The Movement', price: '$600\u2013900', desc: 'A full digital presence buildout \u2014 multiple pages, graphics, and a promo video working together.', deliverables: '3 pages \u00b7 Graphics set \u00b7 1 promo video \u00b7 3 revisions \u00b7 10 day turnaround', tag: '' },
+      { name: 'Monthly Refresh', price: "Custom \u2014 let\u2019s talk", desc: 'Monthly page updates plus fresh content to keep your site and socials current.', deliverables: 'Page updates \u00b7 Monthly graphics \u00b7 Priority support', tag: '' }
+    ],
+    'Full Package': [
+      { name: 'Launch', price: '$500\u2013650', desc: 'A complete starter bundle \u2014 graphics, video, and a page working together for your first campaign or launch.', deliverables: '4 graphics \u00b7 1 short-form video \u00b7 1 page \u00b7 1 revision \u00b7 5\u20137 day turnaround', tag: '' },
+      { name: 'Brand Ready', price: '$950\u20131,200', desc: "The full content suite for a brand that\u2019s ready to show up consistently across every platform.", deliverables: '8 graphics \u00b7 3 short-form videos \u00b7 2 pages \u00b7 2 revisions \u00b7 10 day turnaround', tag: 'Most Popular' },
+      { name: 'All In', price: '$1,500\u20131,800', desc: 'The complete package. Everything you need to launch, promote, and sustain a brand presence \u2014 including a strategy call.', deliverables: '12 graphics \u00b7 5 short-form videos \u00b7 3 pages \u00b7 Brand kit \u00b7 Strategy call \u00b7 3 revisions', tag: '' },
+      { name: 'Monthly Retainer', price: "Custom \u2014 let\u2019s talk", desc: 'Full ongoing content support \u2014 graphics, video, and page updates on a recurring monthly basis.', deliverables: 'Monthly graphics + videos + page updates \u00b7 Priority turnaround', tag: '' }
+    ]
+  };
+
+  function goTo(step) {
+    document.querySelectorAll('.step-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('success').classList.remove('active');
+    for (var i = 1; i <= 6; i++) {
+      var prog = document.getElementById('prog-' + i);
+      prog.classList.remove('active', 'done');
+      if (i < step) prog.classList.add('done');
+      else if (i === step) prog.classList.add('active');
+    }
+    if (step <= 6) document.getElementById('step-' + step).classList.add('active');
+    if (step === 2 && state.service) buildPackages(state.service);
+    if (step === 6) populateSummary();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-}
 
-const packages = {
-  'Social Graphics': [
-    { name: 'The Spark', price: '$100–150', desc: '3–5 branded graphics for social media. Great for a single campaign, event, or promo push.', deliverables: '3–5 graphics · 1 revision · 48hr turnaround', tag: '' },
-    { name: 'The Wave', price: '$275–400', desc: '10 branded graphics with templates you can reuse. Consistent branding across all your platforms.', deliverables: '10 graphics · Reusable templates · 2 revisions · 5 day turnaround', tag: 'Most Popular' },
-    { name: 'The Movement', price: '$600–800', desc: 'A full social graphics kit — posts, stories, covers, and event fliers. Everything in one brand voice.', deliverables: '20+ graphics · Full kit · 3 revisions · 7–10 day turnaround', tag: '' },
-    { name: 'Monthly Retainer', price: "Custom — let's talk", desc: 'Fresh branded graphics delivered every month. Never run out of content again.', deliverables: '12–20 graphics/mo · Ongoing revisions · Priority turnaround', tag: '' }
-  ],
-  'Short-Form Video': [
-    { name: 'The Spark', price: '$100–150', desc: '1 professionally edited short-form video. Your footage, our edit. Perfect for a single promo or event highlight.', deliverables: '1 short-form video · 1 revision · 3–5 day turnaround', tag: '' },
-    { name: 'The Wave', price: '$265–400', desc: '3 short-form videos, style-matched for cohesive branding across your feed.', deliverables: '3 short-form videos · 2 revisions · 5–7 day turnaround', tag: 'Most Popular' },
-    { name: 'The Movement', price: '$600–800', desc: 'A full short-form video campaign with a content strategy call to plan the rollout.', deliverables: '5–6 short-form videos · 3 revisions · 7–10 day turnaround · Strategy call', tag: '' },
-    { name: 'Monthly Retainer', price: "Custom — let's talk", desc: 'Consistent video content every month. Stay visible without thinking about it.', deliverables: '4–8 short-form videos/mo · Ongoing revisions · Priority turnaround', tag: '' }
-  ],
-  'Web Page': [
-    { name: 'The Spark', price: '$150–350', desc: 'One page, built for wherever your audience is. Choose your type: website landing page, YouTube channel, Facebook page, link-in-bio hub, or event page.', deliverables: '1 page (your choice of type) · 1 revision · 5 day turnaround', tag: '' },
-    { name: 'The Wave', price: '$300–500', desc: 'Two pages built and branded together — plus matching social graphics to drive traffic to them.', deliverables: '2 pages · Matching branded graphics · 2 revisions · 7 day turnaround', tag: 'Most Popular' },
-    { name: 'The Movement', price: '$600–900', desc: 'A full digital presence buildout — multiple pages, graphics, and a promo video working together.', deliverables: '3 pages · Graphics set · 1 promo video · 3 revisions · 10 day turnaround', tag: '' },
-    { name: 'Monthly Refresh', price: "Custom — let's talk", desc: 'Monthly page updates plus fresh content to keep your site and socials current.', deliverables: 'Page updates · Monthly graphics · Priority support', tag: '' }
-  ],
-  'Full Package': [
-    { name: 'Launch', price: '$500–650', desc: 'A complete starter bundle — graphics, video, and a page working together for your first campaign or launch.', deliverables: '4 graphics · 1 short-form video · 1 page · 1 revision · 5–7 day turnaround', tag: '' },
-    { name: 'Brand Ready', price: '$950–1,200', desc: "The full content suite for a brand that's ready to show up consistently across every platform.", deliverables: '8 graphics · 3 short-form videos · 2 pages · 2 revisions · 10 day turnaround', tag: 'Most Popular' },
-    { name: 'All In', price: '$1,500–1,800', desc: 'The complete package. Everything you need to launch, promote, and sustain a brand presence — including a strategy call.', deliverables: '12 graphics · 5 short-form videos · 3 pages · Brand kit · Strategy call · 3 revisions', tag: '' },
-    { name: 'Monthly Retainer', price: "Custom — let's talk", desc: 'Full ongoing content support — graphics, video, and page updates on a recurring monthly basis.', deliverables: 'Monthly graphics + videos + page updates · Priority turnaround', tag: '' }
-  ]
-};
-
-function buildPackages(service) {
-  const container = document.getElementById('packages-container');
-  const pkgs = packages[service] || packages['Full Package'];
-  container.innerHTML = pkgs.map(p => `
-    <div class="option-card" data-step="2" data-value="${p.name} — ${p.price}" onclick="selectOption(this)">
-      ${p.tag ? `<div class="option-tag">${p.tag}</div>` : ''}
-      <div class="option-name">${p.name}</div>
-      <div class="option-desc">${p.desc}</div>
-      <div class="option-price" style="margin-top:0.8rem;">${p.price}</div>
-      <div style="font-size:0.75rem;color:#aaa;margin-top:0.4rem;line-height:1.5;">${p.deliverables}</div>
-    </div>
-  `).join('');
-  document.getElementById('next-2').disabled = true;
-  state.package = null;
-}
-
-function selectOption(el) {
-  const card = el.closest('[data-step]');
-  if (!card) return;
-  const step = card.dataset.step;
-  document.querySelectorAll(`[data-step="${step}"]`).forEach(c => c.classList.remove('selected'));
-  card.classList.add('selected');
-  const val = card.dataset.value;
-  if (step === '1') { state.service = val; document.getElementById('next-1').disabled = false; }
-  if (step === '2') { state.package = val; document.getElementById('next-2').disabled = false; }
-  if (step === '3') { state.style = val; document.getElementById('next-3').disabled = false; }
-}
-
-function validateStep5() {
-  const ok = ['fname','lname','email','bizname'].every(id => document.getElementById(id).value.trim());
-  document.getElementById('next-5').disabled = !ok;
-}
-
-function goTo(step) {
-  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('success').classList.remove('active');
-  for (let i = 1; i <= 6; i++) {
-    const prog = document.getElementById(`prog-${i}`);
-    prog.classList.remove('active','done');
-    if (i < step) prog.classList.add('done');
-    else if (i === step) prog.classList.add('active');
+  function buildPackages(service) {
+    var container = document.getElementById('packages-container');
+    var pkgs = packageData[service] || packageData['Full Package'];
+    container.innerHTML = pkgs.map(function(p) {
+      return '<div class="option-card" data-step="2" data-value="' + p.name + ' \u2014 ' + p.price + '">' +
+        (p.tag ? '<div class="option-tag">' + p.tag + '</div>' : '') +
+        '<div class="option-name">' + p.name + '</div>' +
+        '<div class="option-desc">' + p.desc + '</div>' +
+        '<div class="option-price" style="margin-top:0.8rem;">' + p.price + '</div>' +
+        '<div style="font-size:0.75rem;color:#aaa;margin-top:0.4rem;line-height:1.5;">' + p.deliverables + '</div>' +
+        '</div>';
+    }).join('');
+    document.getElementById('next-2').disabled = true;
+    state.pkg = null;
   }
-  if (step <= 6) document.getElementById(`step-${step}`).classList.add('active');
-  if (step === 2 && state.service) buildPackages(state.service);
-  if (step === 6) {
-    document.getElementById('sum-service').textContent = state.service || '—';
-    document.getElementById('sum-package').textContent = state.package || '—';
-    document.getElementById('sum-style').textContent = state.style || '—';
+
+  function populateSummary() {
+    document.getElementById('sum-service').textContent = state.service || '\u2014';
+    document.getElementById('sum-package').textContent = state.pkg || '\u2014';
+    document.getElementById('sum-style').textContent = state.style || '\u2014';
     document.getElementById('sum-addons').textContent = state.addons.length ? state.addons.join(', ') : 'None';
-    document.getElementById('sum-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
+    document.getElementById('sum-name').textContent = (document.getElementById('fname').value + ' ' + document.getElementById('lname').value).trim();
     document.getElementById('sum-email').textContent = document.getElementById('email').value;
-    document.getElementById('sum-phone').textContent = document.getElementById('phone').value || '—';
+    document.getElementById('sum-phone').textContent = document.getElementById('phone').value || '\u2014';
     document.getElementById('sum-biz').textContent = document.getElementById('bizname').value;
-    document.getElementById('sum-deadline').textContent = document.getElementById('deadline').value || '—';
-    document.getElementById('sum-assets').textContent = document.getElementById('assets').value || '—';
-    document.getElementById('sum-details').textContent = document.getElementById('details').value || '—';
+    document.getElementById('sum-deadline').textContent = document.getElementById('deadline').value || '\u2014';
+    document.getElementById('sum-assets').textContent = document.getElementById('assets').value || '\u2014';
+    document.getElementById('sum-details').textContent = document.getElementById('details').value || '\u2014';
   }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
 
-async function submitForm() {
-  const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  const formData = new FormData();
-  formData.append('service', state.service);
-  formData.append('package', state.package);
-  formData.append('style', state.style);
-  formData.append('addons', state.addons.length ? state.addons.join(', ') : 'None');
-  formData.append('name', `${document.getElementById('fname').value} ${document.getElementById('lname').value}`);
-  formData.append('email', document.getElementById('email').value);
-  formData.append('phone', document.getElementById('phone').value);
-  formData.append('business', document.getElementById('bizname').value);
-  formData.append('deadline', document.getElementById('deadline').value);
-  formData.append('assets', document.getElementById('assets').value);
-  formData.append('details', document.getElementById('details').value);
-  try {
-    const res = await fetch('https://formspree.io/f/mjgaverg', {
-      method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
+  function validateStep5() {
+    var ok = ['fname','lname','email','bizname'].every(function(id) {
+      return document.getElementById(id).value.trim() !== '';
     });
-    if (res.ok) { showSuccess(); }
-    else { btn.textContent = 'Submit →'; btn.disabled = false; alert('Something went wrong. Please try again.'); }
-  } catch(e) {
-    btn.textContent = 'Submit →'; btn.disabled = false;
-    alert('Something went wrong. Please check your connection and try again.');
+    document.getElementById('next-5').disabled = !ok;
   }
-}
 
-function showSuccess() {
-  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
-  for (let i = 1; i <= 6; i++) {
-    const prog = document.getElementById(`prog-${i}`);
-    prog.classList.remove('active');
-    prog.classList.add('done');
+  // Card click delegation — handles clicks on cards and their children
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.option-card');
+    if (!card) return;
+
+    // Addon cards
+    if (card.classList.contains('addon-card')) {
+      card.classList.toggle('selected');
+      var addonVal = card.dataset.addon;
+      if (card.classList.contains('selected')) {
+        if (state.addons.indexOf(addonVal) === -1) state.addons.push(addonVal);
+      } else {
+        state.addons = state.addons.filter(function(a) { return a !== addonVal; });
+      }
+      return;
+    }
+
+    // Service / package / style cards
+    var step = card.dataset.step;
+    if (!step) return;
+    document.querySelectorAll('[data-step="' + step + '"]').forEach(function(c) { c.classList.remove('selected'); });
+    card.classList.add('selected');
+    var val = card.dataset.value;
+
+    if (step === '1') { state.service = val; document.getElementById('next-1').disabled = false; }
+    if (step === '2') { state.pkg = val; document.getElementById('next-2').disabled = false; }
+    if (step === '3') { state.style = val; document.getElementById('next-3').disabled = false; }
+  });
+
+  // Button wiring
+  document.getElementById('next-1').addEventListener('click', function() { goTo(2); });
+  document.getElementById('next-2').addEventListener('click', function() { goTo(3); });
+  document.getElementById('back-2').addEventListener('click', function() { goTo(1); });
+  document.getElementById('next-3').addEventListener('click', function() { goTo(4); });
+  document.getElementById('back-3').addEventListener('click', function() { goTo(2); });
+  document.getElementById('next-4').addEventListener('click', function() { goTo(5); });
+  document.getElementById('back-4').addEventListener('click', function() { goTo(3); });
+  document.getElementById('back-5').addEventListener('click', function() { goTo(4); });
+  document.getElementById('back-6').addEventListener('click', function() { goTo(5); });
+
+  // Step 5 validation
+  ['fname','lname','email','bizname'].forEach(function(id) {
+    document.getElementById(id).addEventListener('input', validateStep5);
+  });
+
+  // Next-5 button
+  document.getElementById('next-5').addEventListener('click', function() { goTo(6); });
+
+  // Submit
+  document.getElementById('submit-btn').addEventListener('click', function() {
+    var btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    var formData = new FormData();
+    formData.append('service', state.service);
+    formData.append('package', state.pkg);
+    formData.append('style', state.style);
+    formData.append('addons', state.addons.length ? state.addons.join(', ') : 'None');
+    formData.append('name', document.getElementById('fname').value + ' ' + document.getElementById('lname').value);
+    formData.append('email', document.getElementById('email').value);
+    formData.append('phone', document.getElementById('phone').value);
+    formData.append('business', document.getElementById('bizname').value);
+    formData.append('deadline', document.getElementById('deadline').value);
+    formData.append('assets', document.getElementById('assets').value);
+    formData.append('details', document.getElementById('details').value);
+
+    fetch('https://formspree.io/f/mjgaverg', {
+      method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        showSuccess();
+      } else {
+        btn.textContent = 'Submit \u2192';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    }).catch(function() {
+      btn.textContent = 'Submit \u2192';
+      btn.disabled = false;
+      alert('Something went wrong. Please check your connection and try again.');
+    });
+  });
+
+  function showSuccess() {
+    document.querySelectorAll('.step-panel').forEach(function(p) { p.classList.remove('active'); });
+    for (var i = 1; i <= 6; i++) {
+      var prog = document.getElementById('prog-' + i);
+      prog.classList.remove('active');
+      prog.classList.add('done');
+    }
+    document.getElementById('suc-service').textContent = state.service || '\u2014';
+    document.getElementById('suc-package').textContent = state.pkg || '\u2014';
+    document.getElementById('suc-style').textContent = state.style || '\u2014';
+    document.getElementById('suc-name').textContent = (document.getElementById('fname').value + ' ' + document.getElementById('lname').value).trim();
+    document.getElementById('suc-email').textContent = document.getElementById('email').value;
+    document.getElementById('success').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  document.getElementById('suc-service').textContent = state.service || '—';
-  document.getElementById('suc-package').textContent = state.package || '—';
-  document.getElementById('suc-style').textContent = state.style || '—';
-  document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementBy
+
+})();
+</script>
+</body>
+</html>
