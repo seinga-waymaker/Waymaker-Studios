@@ -45,10 +45,10 @@
   }
   .nav-back:hover { opacity: 1; color: var(--blue); }
 
-  /* HERO BAND */
+  /* HERO */
   .start-hero {
     background: #000000;
-    padding: 7rem 3rem 3rem;
+    padding: 7rem 3rem 3.5rem;
     text-align: center;
     position: relative; overflow: hidden;
   }
@@ -59,8 +59,7 @@
   .start-hero-inner { position: relative; z-index: 1; }
   .start-eyebrow {
     font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em;
-    text-transform: uppercase; color: var(--blue);
-    margin-bottom: 0.8rem;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem;
   }
   .start-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
@@ -71,26 +70,33 @@
   .start-hero h1 span { color: var(--blue); }
   .start-hero p {
     font-size: 0.95rem; color: rgba(255,255,255,0.85);
-    max-width: 420px; margin: 0 auto; line-height: 1.6;
+    max-width: 460px; margin: 0 auto 1.4rem; line-height: 1.6;
   }
+  .hero-consult-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(46,55,254,0.15);
+    border: 1px solid rgba(46,55,254,0.4);
+    border-radius: 2rem; padding: 0.45rem 1.1rem;
+    font-size: 0.75rem; font-weight: 500;
+    color: rgba(255,255,255,0.8); letter-spacing: 0.03em;
+  }
+  .hero-consult-badge strong { color: #fff; font-weight: 700; }
 
-  /* PROGRESS BAR */
+  /* PROGRESS */
   .progress-bar {
-    background: var(--cream);
-    padding: 1.2rem 3rem;
+    background: var(--cream); padding: 1.2rem 3rem;
     border-bottom: 1px solid var(--border);
     position: sticky; top: 64px; z-index: 50;
   }
   .progress-steps {
     display: flex; align-items: center; justify-content: center;
-    gap: 0; max-width: 700px; margin: 0 auto;
+    max-width: 600px; margin: 0 auto;
   }
   .progress-step {
     display: flex; align-items: center; gap: 0.5rem;
     font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
     text-transform: uppercase; color: rgba(26,26,26,0.3);
-    transition: color 0.3s;
-    flex: 1; justify-content: center;
+    transition: color 0.3s; flex: 1; justify-content: center;
   }
   .progress-step.active { color: var(--blue); }
   .progress-step.done { color: var(--black); }
@@ -99,26 +105,16 @@
     background: rgba(26,26,26,0.1);
     display: flex; align-items: center; justify-content: center;
     font-size: 0.65rem; font-weight: 700;
-    transition: background 0.3s, color 0.3s;
-    flex-shrink: 0;
+    transition: background 0.3s, color 0.3s; flex-shrink: 0;
   }
-  .progress-step.active .progress-num {
-    background: var(--blue); color: var(--white);
-  }
-  .progress-step.done .progress-num {
-    background: var(--black); color: var(--white);
-  }
-  .progress-line {
-    height: 1px; flex: 0.3; background: rgba(26,26,26,0.1);
-  }
+  .progress-step.active .progress-num { background: var(--blue); color: var(--white); }
+  .progress-step.done .progress-num { background: var(--black); color: var(--white); }
+  .progress-line { height: 1px; flex: 0.3; background: rgba(26,26,26,0.1); }
 
-  /* FLOW CONTAINER */
-  .flow { max-width: 700px; margin: 0 auto; padding: 3rem 2rem 6rem; background: #ffffff; }
+  /* FLOW */
+  .flow { max-width: 700px; margin: 0 auto; padding: 3rem 2rem 6rem; }
 
-  /* STEP PANELS */
-  .step-panel {
-    display: none; animation: fadeUp 0.4s ease both;
-  }
+  .step-panel { display: none; animation: fadeUp 0.4s ease both; }
   .step-panel.active { display: block; }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
@@ -134,59 +130,37 @@
   .step-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2rem, 5vw, 3.2rem);
-    letter-spacing: 0.03em; margin-bottom: 0.5rem; color: #000000;
+    letter-spacing: 0.03em; margin-bottom: 0.5rem; color: #000;
   }
-  .step-sub {
-    font-size: 0.9rem; color: #111111; margin-bottom: 2.5rem; line-height: 1.6;
-  }
+  .step-sub { font-size: 0.9rem; color: #111; margin-bottom: 2.5rem; line-height: 1.6; }
 
-  /* OPTION CARDS */
-  .options-grid {
-    display: grid; gap: 1rem; margin-bottom: 2rem;
-  }
+  /* CARDS */
+  .options-grid { display: grid; gap: 1rem; margin-bottom: 2rem; }
   .options-grid.cols-2 { grid-template-columns: 1fr 1fr; }
   .options-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
 
   .option-card {
-    border: 1.5px solid var(--border);
-    border-radius: 4px; padding: 1.6rem 1.4rem;
-    cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.2s;
-    background: var(--white); position: relative;
-    user-select: none;
+    border: 1.5px solid var(--border); border-radius: 4px;
+    padding: 1.6rem 1.4rem; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    background: var(--white); position: relative; user-select: none;
   }
   .option-card:hover { border-color: rgba(46,55,254,0.4); transform: translateY(-2px); }
-  .option-card.selected {
-    border-color: var(--blue);
-    background: rgba(46,55,254,0.04);
-  }
-  .option-card.selected::after {
-    content: '✦';
-    position: absolute; top: 0.8rem; right: 0.8rem;
-    color: var(--blue); font-size: 0.6rem;
-  }
-
-  /* Add-on cards — support multi-select */
-  .addon-card.selected {
-    border-color: var(--blue);
-    background: rgba(46,55,254,0.04);
-  }
+  .option-card.selected { border-color: var(--blue); background: rgba(46,55,254,0.04); }
+  .option-card.selected::after,
   .addon-card.selected::after {
-    content: '✦';
-    position: absolute; top: 0.8rem; right: 0.8rem;
+    content: '✦'; position: absolute; top: 0.8rem; right: 0.8rem;
     color: var(--blue); font-size: 0.6rem;
   }
+  .addon-card.selected { border-color: var(--blue); background: rgba(46,55,254,0.04); }
 
   .option-icon { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
   .option-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem; letter-spacing: 0.04em;
-    color: #000000; margin-bottom: 0.3rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem;
+    letter-spacing: 0.04em; color: #000; margin-bottom: 0.3rem;
   }
-  .option-desc { font-size: 0.8rem; color: #444444; line-height: 1.5; }
-  .option-price {
-    font-size: 0.78rem; font-weight: 700; color: var(--blue);
-    margin-top: 0.6rem;
-  }
+  .option-desc { font-size: 0.8rem; color: #444; line-height: 1.5; }
+  .option-price { font-size: 0.78rem; font-weight: 700; color: var(--blue); margin-top: 0.6rem; }
   .option-tag {
     position: absolute; top: -1px; left: 1rem;
     font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
@@ -194,7 +168,7 @@
     padding: 0.2rem 0.5rem; border-radius: 0 0 2px 2px;
   }
 
-  /* FORM FIELDS */
+  /* FORMS */
   .form-grid { display: grid; gap: 1rem; margin-bottom: 2rem; }
   .form-grid.cols-2 { grid-template-columns: 1fr 1fr; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -203,8 +177,7 @@
     text-transform: uppercase; color: var(--black);
   }
   .form-group input,
-  .form-group textarea,
-  .form-group select {
+  .form-group textarea {
     background: var(--cream); border: 1.5px solid var(--border);
     border-radius: 2px; padding: 0.85rem 1rem;
     color: var(--black); font-family: 'DM Sans', sans-serif;
@@ -212,26 +185,23 @@
     transition: border-color 0.2s; width: 100%;
   }
   .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus { border-color: var(--blue); background: var(--white); }
+  .form-group textarea:focus { border-color: var(--blue); background: var(--white); }
   .form-group input::placeholder,
   .form-group textarea::placeholder { color: rgba(26,26,26,0.35); }
   .form-group textarea { resize: vertical; min-height: 100px; }
 
-  /* SUMMARY BOX */
+  /* SUMMARY */
   .summary-box {
     background: var(--cream); border: 1px solid var(--border);
     border-radius: 4px; padding: 1.5rem; margin-bottom: 2rem;
   }
   .summary-box h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem; letter-spacing: 0.04em;
-    margin-bottom: 1rem; color: var(--black);
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    letter-spacing: 0.04em; margin-bottom: 1rem; color: var(--black);
   }
   .summary-row {
     display: flex; justify-content: space-between;
-    padding: 0.4rem 0; border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
+    padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem;
   }
   .summary-row:last-child { border-bottom: none; }
   .summary-row span:first-child { color: var(--muted); }
@@ -240,44 +210,46 @@
   /* BUTTONS */
   .btn-row { display: flex; gap: 1rem; align-items: center; }
   .btn-next {
-    background: var(--blue); color: var(--white);
-    border: none; padding: 1rem 2.4rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    border-radius: 2px; cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    display: inline-block;
+    background: var(--blue); color: var(--white); border: none;
+    padding: 1rem 2.4rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; border-radius: 2px; cursor: pointer;
+    transition: background 0.2s, transform 0.2s; display: inline-block;
   }
   .btn-next:hover { background: var(--blue-light); transform: translateY(-2px); }
   .btn-next:disabled { background: rgba(26,26,26,0.2); cursor: not-allowed; transform: none; }
   .btn-back {
     background: none; border: none; cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem; font-weight: 500; color: var(--muted);
-    letter-spacing: 0.05em; padding: 0;
-    transition: color 0.2s;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+    font-weight: 500; color: var(--muted); letter-spacing: 0.05em;
+    padding: 0; transition: color 0.2s;
   }
   .btn-back:hover { color: var(--black); }
 
   /* SUCCESS */
-  .success-panel {
-    display: none; text-align: center; padding: 3rem 0;
-  }
+  .success-panel { display: none; text-align: center; padding: 3rem 0; }
   .success-panel.active { display: block; animation: fadeUp 0.5s ease both; }
   .success-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; }
   .success-panel h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3rem; letter-spacing: 0.03em;
-    color: var(--black); margin-bottom: 0.8rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: 3rem;
+    letter-spacing: 0.03em; color: var(--black); margin-bottom: 0.8rem;
   }
-  .success-panel p {
+  .success-panel > p {
     font-size: 0.95rem; color: var(--muted);
-    max-width: 380px; margin: 0 auto 2rem; line-height: 1.6;
+    max-width: 400px; margin: 0 auto 1.5rem; line-height: 1.6;
   }
+  .success-next-step {
+    display: flex; align-items: flex-start; gap: 1rem; text-align: left;
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.3rem 1.5rem;
+    max-width: 480px; margin: 0 auto 2rem;
+  }
+  .success-next-step-icon { font-size: 1.4rem; flex-shrink: 0; padding-top: 0.1rem; }
+  .success-next-step-body { font-size: 0.83rem; color: #333; line-height: 1.65; }
+  .success-next-step-body strong { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); margin-bottom: 0.3rem; }
   .success-summary {
     background: var(--blue); border-radius: 4px;
-    padding: 1.8rem; margin: 2rem 0; text-align: left;
+    padding: 1.8rem; margin: 0 0 2rem; text-align: left;
   }
   .success-summary .summary-row { border-color: rgba(255,255,255,0.15); }
   .success-summary .summary-row span:first-child { color: rgba(255,255,255,0.5); }
@@ -296,7 +268,7 @@
     .progress-bar { padding: 1rem 1.5rem; }
     .progress-step span { display: none; }
     .flow { padding: 2rem 1.5rem 5rem; }
-    .options-grid.cols-2 { grid-template-columns: 1fr; }
+    .options-grid.cols-2,
     .options-grid.cols-3 { grid-template-columns: 1fr; }
     .form-grid.cols-2 { grid-template-columns: 1fr; }
     .btn-row { flex-direction: column-reverse; align-items: flex-start; }
@@ -308,7 +280,7 @@
 
 <nav>
   <a class="nav-logo" href="index.html">
-    <img src="data:image/webp;base64,UklGRiAFAABXRUJQVlA4WAoAAAAYAAAAeQEA7wAAVlA4TD8EAAAvecE7EIAgSZKgJP//btRlx+0ZFzAiENK2mo8QQgghhBDCEEIIIYQQhjCEEIaQQbIgSXbbZg+SHNoJPoDE8ZEOnzDgwnStEABRxm4sj6Pzw7XdWL6iAYJ8u1YSqN1dRpwez+4ujxwfYleLeHZ/6bO/kNmCco7f5GqQtWE3YQNvaPG0rMG3FaWO/vqSGBzpizi4JbH0+LP1/m9w/BeJta8BpyY+HFzG2sTGW/udQ3F3oSzq0PMvJczaDYWqiT5559XE0uM35+ewujO2PfneuVsTFx4ryN56uFuqbdjvhNmawgGuoFfua1Rhc/K1hF8Tfv4HurYb4mKRGQPIpRsJOWMMoFf6D8fFquwGMcnITn4zd0y7C6mtKRRg4z98r93iHJfQwUcBPDUGZBauakRajGJjYN8d9m3j43cY/n4UMGUMyP/5fMviYl2OD+9V+dPdlLTYiY0BxOMNXXJsYmMA+XCcNIyDVHJMqnCm0C5xjOoYhwpvEmcKGgCe0y7Ek8felccweSzvECaTx3rw2Jk8Ni9R7A4es8ljv32MT15C0D6WM8S4CMMMsffXwt4MMUwey4uC1eAxvfOYDx6jly9mk8f+4LG489h9iWJn8thceUwmj/WrF6PJYzV4TO885i9RjCePvSuPYfJYvnFiZ/LYtIidwWMdKqRHTFK94MvlwmaIWNx57A4es8lj/40Te1cew+SxHDzG746YDx6jyWM1eEz/W8Bs8tgfPBZ3Hrt/LSwGj/2jJy3tY3b0qrzusfs3x2TyWH9kYXrnMR88RpPH6nMJy8FjPHnsXXkMn1nYmTw2Vx6TyWP9uYTdwWM2eewPHosPB+xNHuNUL6rWIpahgnvEkOpF1a48hndHTO885oPHaPJY/Z+GWf847S5UreC443ZIi3knmB6NO/msW/ON42JoBLtxbxBxI9iDtJhCKpw2yNSkERx35TuFWDjt80BIJ2Fx7x7qRgJ+2jidRJRcR4TFABALx506qpKnJ7aBMUBWLJOFxe1dXTFN7wLLuCsGULSIgt6Nij2IFlTQu1GxgGyl9vduVEzDhcbtXb19zUMXmKZdlefGC9/du1ExjxcUt3fV5ld5SYfT9i7Z/Lf27gLjtKvyFAQsf2vvRsVOwvC4vbsN44RBcXtX7pxMd4FR2kczZMbQuL3r7ZtMd4Fl3GeXQcjwuL1rtk2mu8Bxn10mIGWpXb0bFZOYoZvGXlGxgZyl9/RuVOwGjbOnd6NiJ2iQSTv2kltGFl1gJ+2qPB+ShsTtXW/DyKILrOPeILKsceL2rnl+UVtUnLZ3xfMjiy5w3JXvPG1I3Osh99mRRVictnfZsyOLLjBJ+2iGyhtk0l4PiZqRRdpdqOJ2KAocFPd6SD232iHud5y2d3HJw2Bhd6Ebt0MJRC6Z9noIPzMfbeI7wWnvi0gIXcRfmL3QsLeIRiCIXfSnInH/K4R/86cAAEVYSUa6AAAARXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAACoSwMA6AMAAKhLAwDoAwAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAQAAQAAAHoBAAADoAQAAQAAAPAAAAAAAAAA" alt="Waymaker Studios"/>
+    <img src="data:image/webp;base64,UklGRiAFAABXRUJQVlA4WAoAAAAYAAAAeQEA7wAAVlA4TD8EAAAvecE7EIAgSZKgJP//btRlx+0ZFzAiENK2mo8QQgghhBDCEEIIIYQQhjCEEIaQQbIgSXbbZg+SHNoJPoDE8ZEOnzDgwnStEABRxm4sj6Pzw7XdWL6iAYJ8u1YSqN1dRpwez+4ujxwfYleLeHZ/6bO/kNmCco7f5GqQtWE3YQNvaPG0rMG3FaWO/vqSGBzpiji4JbH0+LP1/m9w/BeJta8BpyY+HFzG2sTGW/udQ3F3oSzq0PMvJczaDYWqiT5559XE0uM35+ewujO2PfneuVsTFx4ryN56uFuqbdjvhNmawgGuoFfua1Rhc/K1hF8Tfv4HurYb4mKRGQPIpRsJOWMMoFf6D8fFquwGMcnITn4zd0y7C6mtKRRg4z98r93iHJfQwUcBPDUGZBauakRajGJjYN8d9m3j43cY/n4UMGUMyP/5fMviYl2OD+9V+dPdlLTYiY0BxOMNXXJsYmMA+XCcNIyDVHJMqnCm0C5xjOoYhwpvEmcKGgCe0y7Ek8felccweSzvECaTx3rw2Jk8Ni9R7A4es8ljv32MT15C0D6WM8S4CMMMsffXwt4MMUwey4uC1eAxvfOYDx6jly9mk8f+4LG489h9iWJn8thceUwmj/WrF6PJYzV4TO885i9RjCePvSuPYfJYvnFiZ/LYtIidwWMdKqRHTFK94MvlwmaIWNx57A4es8lj/40Te1cew+SxHDzG746YDx6jyWM1eEz/W8Bs8tgfPBZ3Hrt/LSwGj/2jJy3tY3b0qrzusfs3x2TyWH9kYXrnMR88RpPH6nMJy8FjPHnsXXkMn1nYmTw2Vx6TyWP9uYTdwWM2eewPHosPB+xNHuNUL6rWIpahgnvEkOpF1a48hndHTO885oPHaPJY/Z+GWf847S5UreC443ZIi3knmB6NO/msW/ON42JoBLtxbxBxI9iDtJhCKpw2yNSkERx35TuFWDjt80BIJ2Fx7x7qRgJ+2jidRJRcR4TFABALx506qpKnJ7aBMUBWLJOFxe1dXTFN7wLLuCsGULSIgt6Nij2IFlTQu1GxgGyl9vduVEzDhcbtXb19zUMXmKZdlefGC9/du1ExjxcUt3fV5ld5SYfT9i7Z/Lf27gLjtKvyFAQsf2vvRsVOwvC4vbsN44RBcXtX7pxMd4FR2kczZMbQuL3r7ZtMd4Fl3GeXQcjwuL1rtk2mu8Bxn10mIGWpXb0bFZOYoZvGXlGxgZyl9/RuVOwGjbOnd6NiJ2iQSTv2kltGFl1gJ+2qPB+ShsTtXW/DyKILrOPeILKsceL2rnl+UVtUnLZ3xfMjiy5w3JXvPG1I3Osh99mRRVictnfZsyOLLjBJ+2iGyhtk0l4PiZqRRdpdqOJ2KAocFPd6SD232iHud5y2d3HJw2Bhd6Ebt0MJRC6Z9noIPzMfbeI7wWnvi0gIXcRfmL3QsLeIRiCIXfSnInH/K4R/86cAAEVYSUa6AAAARXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAACoSwMA6AMAAKhLAwDoAwAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAQAAQAAAHoBAAADoAQAAQAAAPAAAAAAAAAA" alt="Waymaker Studios"/>
   </a>
   <a class="nav-back" href="index.html">← Back to Site</a>
 </nav>
@@ -319,42 +291,25 @@
   <div class="start-hero-inner">
     <div class="start-eyebrow">Waymaker Studios</div>
     <h1>Start Your <span>Project.</span></h1>
-    <p>Six quick steps. No guesswork. We'll be in touch within 24 hours.</p>
+    <p>Six quick steps. No guesswork. We'll review your project and schedule a quick alignment call within 24 hours.</p>
+
   </div>
 </section>
 
 <!-- PROGRESS -->
 <div class="progress-bar">
   <div class="progress-steps">
-    <div class="progress-step active" id="prog-1">
-      <div class="progress-num">1</div>
-      <span>Service</span>
-    </div>
+    <div class="progress-step active" id="prog-1"><div class="progress-num">1</div><span>Service</span></div>
     <div class="progress-line"></div>
-    <div class="progress-step" id="prog-2">
-      <div class="progress-num">2</div>
-      <span>Package</span>
-    </div>
+    <div class="progress-step" id="prog-2"><div class="progress-num">2</div><span>Package</span></div>
     <div class="progress-line"></div>
-    <div class="progress-step" id="prog-3">
-      <div class="progress-num">3</div>
-      <span>Style</span>
-    </div>
+    <div class="progress-step" id="prog-3"><div class="progress-num">3</div><span>Style</span></div>
     <div class="progress-line"></div>
-    <div class="progress-step" id="prog-4">
-      <div class="progress-num">4</div>
-      <span>Add-Ons</span>
-    </div>
+    <div class="progress-step" id="prog-4"><div class="progress-num">4</div><span>Add-Ons</span></div>
     <div class="progress-line"></div>
-    <div class="progress-step" id="prog-5">
-      <div class="progress-num">5</div>
-      <span>Details</span>
-    </div>
+    <div class="progress-step" id="prog-5"><div class="progress-num">5</div><span>Details</span></div>
     <div class="progress-line"></div>
-    <div class="progress-step" id="prog-6">
-      <div class="progress-num">6</div>
-      <span>Review</span>
-    </div>
+    <div class="progress-step" id="prog-6"><div class="progress-num">6</div><span>Review</span></div>
   </div>
 </div>
 
@@ -370,29 +325,29 @@
       <div class="option-card" data-step="1" data-value="Social Graphics" onclick="selectOption(this)">
         <span class="option-icon">🎨</span>
         <div class="option-name">Social Graphics</div>
-        <div class="option-desc">Branded graphics for social media, promotions, and events.</div>
+        <div class="option-desc">Branded graphics for social media, event fliers, promotions, and announcements.</div>
       </div>
       <div class="option-card" data-step="1" data-value="Short-Form Video" onclick="selectOption(this)">
         <span class="option-icon">🎬</span>
         <div class="option-name">Short-Form Video</div>
-        <div class="option-desc">Send your footage — we edit and deliver platform-ready Reels. No footage yet? Add an on-site shoot in Step 4.</div>
+        <div class="option-desc">Send your footage — we edit and deliver platform-ready short-form videos. No footage yet? Add an on-site shoot in Step 4.</div>
       </div>
       <div class="option-card" data-step="1" data-value="Web Page" onclick="selectOption(this)">
         <span class="option-icon">🌐</span>
         <div class="option-name">Web Page</div>
-        <div class="option-desc">A clean, focused landing page for your business or event.</div>
+        <div class="option-desc">A landing page, YouTube channel, Facebook page, link-in-bio hub, or event page — built clean and branded fast.</div>
       </div>
       <div class="option-card" data-step="1" data-value="Full Package" onclick="selectOption(this)">
         <span class="option-icon">💎</span>
         <div class="option-name">Full Package</div>
-        <div class="option-desc">Graphics + video + web page — everything in one go. Need content every month? You'll be able to choose a retainer in the next step.</div>
+        <div class="option-desc">Graphics + video + web page — everything in one go. Need content every month? You'll choose a retainer in the next step.</div>
       </div>
     </div>
     <div style="margin-top:0.5rem;margin-bottom:1.5rem;">
       <div style="background:#f5f5f5;border-left:3px solid #2e37fe;border-radius:4px;padding:0.9rem 1.1rem;display:flex;align-items:flex-start;gap:0.75rem;">
         <span style="font-size:1.1rem;flex-shrink:0;margin-top:0.05rem;">📸</span>
         <p style="margin:0;font-size:0.8rem;color:#555;line-height:1.6;">
-          <strong style="color:#111;">Need photo coverage?</strong> We offer professional photography for events, brand sessions, and product shoots. <strong style="color:#2e37fe;">Add Photography as an add-on in Step 4.</strong>
+          <strong style="color:#111;">Need photo or video coverage?</strong> We'll come to you before or during your event — product shoots, brand sessions or event coverage — so you can start promoting right away. <strong style="color:#2e37fe;">Select this add-on in Step 4.</strong>
         </p>
       </div>
     </div>
@@ -401,13 +356,13 @@
     </div>
   </div>
 
-  <!-- STEP 2: PACKAGE (dynamically populated) -->
+  <!-- STEP 2: PACKAGE -->
   <div class="step-panel" id="step-2">
     <div class="step-label">Step 2 of 6</div>
     <h2 class="step-title" id="step2-title">Pick Your Package.</h2>
     <p class="step-sub" id="step2-sub">Choose the tier that fits your goals and budget.</p>
-    <div class="options-grid" style="grid-template-columns: 1fr;" id="packages-container"></div>
-    <div class="btn-row" style="margin-top:2rem;">
+    <div class="options-grid" style="grid-template-columns:1fr;" id="packages-container"></div>
+    <div class="btn-row">
       <button class="btn-next" id="next-2" onclick="goTo(3)" disabled>Next →</button>
       <button class="btn-back" onclick="goTo(1)">← Back</button>
     </div>
@@ -447,17 +402,17 @@
     <h2 class="step-title">Anything to Add?</h2>
     <p class="step-sub">Optional extras to round out your package. Select all that apply — or skip and move on.</p>
     <div class="options-grid cols-2">
-      <div class="option-card addon-card" data-addon="Photography — Starting at +$150" onclick="toggleAddon(this)">
+      <div class="option-card addon-card" data-addon="Event Photo/Video Shoot — +$100–200" onclick="toggleAddon(this)">
         <span class="option-icon">📸</span>
-        <div class="option-name">Photography</div>
-        <div class="option-desc">Professional on-site photography for events, brand sessions, and product shoots. We'll confirm the exact scope with you.</div>
-        <div class="option-price">Starting at +$150</div>
+        <div class="option-name">Event Photo/Video Shoot</div>
+        <div class="option-desc">On-site coverage at your event. We capture the moments so you have footage to work with.</div>
+        <div class="option-price">+$100–200</div>
       </div>
-      <div class="option-card addon-card" data-addon="Extra Video — +$50–75 each" onclick="toggleAddon(this)">
+      <div class="option-card addon-card" data-addon="Extra Video — +$85 each" onclick="toggleAddon(this)">
         <span class="option-icon">🎬</span>
         <div class="option-name">Extra Video</div>
         <div class="option-desc">Additional short-form video on top of your package deliverables.</div>
-        <div class="option-price">+$50–75 each</div>
+        <div class="option-price">+$85 each</div>
       </div>
       <div class="option-card addon-card" data-addon="Extra Graphics — +$15–25 each" onclick="toggleAddon(this)">
         <span class="option-icon">🖼️</span>
@@ -470,6 +425,12 @@
         <div class="option-name">Extra Web Page</div>
         <div class="option-desc">A second page or standalone event/offer page added to your build.</div>
         <div class="option-price">+$150–250</div>
+      </div>
+      <div class="option-card addon-card" data-addon="Platform Setup & Optimization — +$75 per platform" onclick="toggleAddon(this)">
+        <span class="option-icon">⚙️</span>
+        <div class="option-name">Platform Setup & Optimization</div>
+        <div class="option-desc">We set up and optimize your profile on any platform — YouTube, Instagram, Facebook, TikTok, or LinkedIn.</div>
+        <div class="option-price">+$75 per platform</div>
       </div>
       <div class="option-card addon-card" data-addon="Rush Delivery — +$50 flat" onclick="toggleAddon(this)">
         <span class="option-icon">⚡</span>
@@ -488,7 +449,7 @@
   <div class="step-panel" id="step-5">
     <div class="step-label">Step 5 of 6</div>
     <h2 class="step-title">Tell Us About You.</h2>
-    <p class="step-sub">Almost there — just a few details so we can reach out and get started.</p>
+    <p class="step-sub">Almost there — just a few details so we can reach out.</p>
     <div class="form-grid cols-2">
       <div class="form-group">
         <label>First Name</label>
@@ -511,13 +472,13 @@
     </div>
     <div class="form-grid">
       <div class="form-group">
-        <label>Business / Event Name</label>
+        <label>Business / Brand / Event Name</label>
         <input type="text" id="bizname" placeholder="Your brand or event name" oninput="validateStep5()"/>
       </div>
     </div>
     <div class="form-grid cols-2">
       <div class="form-group">
-        <label>Deadline / Event Date</label>
+        <label>Estimated Deadline / Event Date</label>
         <input type="text" id="deadline" placeholder="e.g. March 15 or ASAP"/>
       </div>
       <div class="form-group">
@@ -547,7 +508,7 @@
       <div class="summary-row"><span>Service</span><span id="sum-service">—</span></div>
       <div class="summary-row"><span>Package</span><span id="sum-package">—</span></div>
       <div class="summary-row"><span>Style</span><span id="sum-style">—</span></div>
-      <div class="summary-row"><span>Add-Ons</span><span id="sum-addons" style="max-width:60%;text-align:right;">—</span></div>
+      <div class="summary-row"><span>Add-Ons</span><span id="sum-addons">—</span></div>
       <div class="summary-row"><span>Name</span><span id="sum-name">—</span></div>
       <div class="summary-row"><span>Email</span><span id="sum-email">—</span></div>
       <div class="summary-row"><span>Phone</span><span id="sum-phone">—</span></div>
@@ -566,7 +527,16 @@
   <div class="success-panel" id="success">
     <span class="success-icon">✦</span>
     <h2>You're All Set.</h2>
-    <p>Thanks for reaching out! We'll review your project and get back to you within 24 hours.</p>
+    <p>We've received your project details and will be in touch within 24 hours.</p>
+
+    <div class="success-next-step">
+      <div class="success-next-step-icon">📞</div>
+      <div class="success-next-step-body">
+        <strong>What happens next</strong>
+        We'll review your submission and reach out to schedule a quick alignment call — no obligation, no pressure. It's a chance to talk through your vision before anything gets started.
+      </div>
+    </div>
+
     <div class="success-summary">
       <div class="summary-row"><span>Service</span><span id="suc-service">—</span></div>
       <div class="summary-row"><span>Package</span><span id="suc-package">—</span></div>
@@ -579,188 +549,151 @@
 
 </div>
 
-<!-- CUSTOM DESIGN NOTE -->
+<!-- FOOTER CALLOUT -->
 <div style="background:#2e37fe;padding:2.5rem 2rem;text-align:center;">
   <p style="font-size:0.85rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:600px;margin:0 auto;">
-    Looking to create a <strong style="color:#fff;">custom logo/branding</strong> or need <strong style="color:#fff;">photography only?</strong> These projects are handled separately.
+    Looking for a <strong style="color:#fff;">custom logo or graphics project?</strong> These projects are handled separately.
     Reach out directly and we'll talk through your needs. &nbsp;
-    <a href="mailto:seinga@waymakerstudios.co" style="color:#fff;font-weight:600;text-decoration:underline;">seinga@waymakerstudios.co →</a>
+    <a href="/cdn-cgi/l/email-protection#f586909c9b9294b582948c98949e9087868180919c9a86db969a" style="color:#fff;font-weight:600;text-decoration:underline;"><span class="__cf_email__" data-cfemail="e19284888f8680a19680988c808a849392959485888e92cf828e">[email&#160;protected]</span> →</a>
   </p>
 </div>
 
-<script>
-  const state = {
-    service: null, package: null, style: null, addons: []
-  };
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const state = { service: null, package: null, style: null, addons: [] };
 
-  function toggleAddon(el) {
-    const val = el.dataset.addon;
-    el.classList.toggle('selected');
-    if (el.classList.contains('selected')) {
-      if (!state.addons.includes(val)) state.addons.push(val);
-    } else {
-      state.addons = state.addons.filter(a => a !== val);
-    }
+function toggleAddon(el) {
+  const val = el.dataset.addon;
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) {
+    if (!state.addons.includes(val)) state.addons.push(val);
+  } else {
+    state.addons = state.addons.filter(a => a !== val);
   }
+}
 
-  // Dynamic packages per service (Photography removed — now add-on only)
-  const packages = {
-    'Short-Form Video': [
-      { name: 'The Spark', price: '$125', desc: '1 professionally edited Reel. Your footage, our edit. Perfect for a single promo or event highlight.', deliverables: '1 Reel · 1 revision · 3–5 day turnaround', tag: '' },
-      { name: 'The Wave', price: '$350', desc: '3 edited Reels, style-matched for cohesive branding across your feed. More reach, more impact.', deliverables: '3 Reels · 2 revisions · 5–7 day turnaround', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$700', desc: 'A full short-form video campaign. 5–6 Reels with a content strategy call to plan the rollout.', deliverables: '5–6 Reels · 3 revisions · 7–10 day turnaround · Strategy call', tag: '' },
-      { name: 'Monthly Retainer', price: '$400/mo', desc: 'Consistent video content every month. Stay visible without thinking about it.', deliverables: '4–8 Reels/mo · Ongoing revisions · Priority turnaround', tag: '' },
-    ],
-    'Social Graphics': [
-      { name: 'The Spark', price: '$125', desc: '3–5 branded graphics for social media. Great for a single campaign, event, or promo push.', deliverables: '3–5 graphics · 1 revision · 48hr turnaround', tag: '' },
-      { name: 'The Wave', price: '$350', desc: '10 branded graphics with templates you can reuse. Consistent branding across all your platforms.', deliverables: '10 graphics · Reusable templates · 2 revisions · 5 day turnaround', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$700', desc: 'A full social graphics kit — posts, stories, covers, and event fliers. Everything in one brand voice.', deliverables: '20+ graphics · Full kit · 3 revisions · 7–10 day turnaround', tag: '' },
-      { name: 'Monthly Retainer', price: '$400/mo', desc: 'Fresh branded graphics delivered every month. Never run out of content again.', deliverables: '12–20 graphics/mo · Ongoing revisions · Priority turnaround', tag: '' },
-    ],
-    'Web Page': [
-      { name: 'The Spark', price: '$125', desc: 'A clean, focused one-page site for your business or event. Built to convert visitors into leads.', deliverables: '1-page build · 1 revision · 5 day turnaround', tag: '' },
-      { name: 'The Wave', price: '$350', desc: 'A landing page plus matching social graphics to drive traffic to it. A complete campaign-ready pair.', deliverables: 'Landing page · 5 matching graphics · 2 revisions · 7 day turnaround', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$700', desc: 'A full conversion funnel — landing page, social graphics, and a promo Reel to drive traffic.', deliverables: 'Landing page · 10 graphics · 1 Reel · 3 revisions · 10 day turnaround', tag: '' },
-      { name: 'Monthly Retainer', price: '$400/mo', desc: 'Monthly page updates plus fresh content to keep your site and socials current.', deliverables: 'Page updates · Monthly graphics · Priority support', tag: '' },
-    ],
-    'Full Package': [
-      { name: 'The Spark', price: '$125', desc: 'A starter bundle to test the waters — one graphic set plus a short Reel to get you moving.', deliverables: '3 graphics · 1 Reel · 1 revision · 5 day turnaround', tag: '' },
-      { name: 'The Wave', price: '$350', desc: 'Graphics, video, and a landing page working together. The full picture for a campaign or event.', deliverables: '5 graphics · 2 Reels · Landing page · 2 revisions', tag: 'Most Popular' },
-      { name: 'The Movement', price: '$700', desc: 'The complete content package. Everything you need to launch, promote, and sustain a brand presence.', deliverables: '15+ graphics · 5 Reels · Landing page · Strategy call · 3 revisions', tag: '' },
-      { name: 'Monthly Retainer', price: '$550/mo', desc: 'Full ongoing content support — graphics, video, and page updates on a recurring monthly basis.', deliverables: 'Monthly graphics + Reels + page updates · Priority turnaround', tag: '' },
-    ],
-  };
+const packages = {
+  'Social Graphics': [
+    { name: 'The Spark', price: '$100–150', desc: '3–5 branded graphics for social media. Great for a single campaign, event, or promo push.', deliverables: '3–5 graphics · 1 revision · 48hr turnaround', tag: '' },
+    { name: 'The Wave', price: '$275–400', desc: '10 branded graphics with templates you can reuse. Consistent branding across all your platforms.', deliverables: '10 graphics · Reusable templates · 2 revisions · 5 day turnaround', tag: 'Most Popular' },
+    { name: 'The Movement', price: '$600–800', desc: 'A full social graphics kit — posts, stories, covers, and event fliers. Everything in one brand voice.', deliverables: '20+ graphics · Full kit · 3 revisions · 7–10 day turnaround', tag: '' },
+    { name: 'Monthly Retainer', price: "Custom — let's talk", desc: 'Fresh branded graphics delivered every month. Never run out of content again.', deliverables: '12–20 graphics/mo · Ongoing revisions · Priority turnaround', tag: '' }
+  ],
+  'Short-Form Video': [
+    { name: 'The Spark', price: '$100–150', desc: '1 professionally edited short-form video. Your footage, our edit. Perfect for a single promo or event highlight.', deliverables: '1 short-form video · 1 revision · 3–5 day turnaround', tag: '' },
+    { name: 'The Wave', price: '$265–400', desc: '3 short-form videos, style-matched for cohesive branding across your feed.', deliverables: '3 short-form videos · 2 revisions · 5–7 day turnaround', tag: 'Most Popular' },
+    { name: 'The Movement', price: '$600–800', desc: 'A full short-form video campaign with a content strategy call to plan the rollout.', deliverables: '5–6 short-form videos · 3 revisions · 7–10 day turnaround · Strategy call', tag: '' },
+    { name: 'Monthly Retainer', price: "Custom — let's talk", desc: 'Consistent video content every month. Stay visible without thinking about it.', deliverables: '4–8 short-form videos/mo · Ongoing revisions · Priority turnaround', tag: '' }
+  ],
+  'Web Page': [
+    { name: 'The Spark', price: '$150–350', desc: 'One page, built for wherever your audience is. Choose your type: website landing page, YouTube channel, Facebook page, link-in-bio hub, or event page.', deliverables: '1 page (your choice of type) · 1 revision · 5 day turnaround', tag: '' },
+    { name: 'The Wave', price: '$300–500', desc: 'Two pages built and branded together — plus matching social graphics to drive traffic to them.', deliverables: '2 pages · Matching branded graphics · 2 revisions · 7 day turnaround', tag: 'Most Popular' },
+    { name: 'The Movement', price: '$600–900', desc: 'A full digital presence buildout — multiple pages, graphics, and a promo video working together.', deliverables: '3 pages · Graphics set · 1 promo video · 3 revisions · 10 day turnaround', tag: '' },
+    { name: 'Monthly Refresh', price: "Custom — let's talk", desc: 'Monthly page updates plus fresh content to keep your site and socials current.', deliverables: 'Page updates · Monthly graphics · Priority support', tag: '' }
+  ],
+  'Full Package': [
+    { name: 'Launch', price: '$500–650', desc: 'A complete starter bundle — graphics, video, and a page working together for your first campaign or launch.', deliverables: '4 graphics · 1 short-form video · 1 page · 1 revision · 5–7 day turnaround', tag: '' },
+    { name: 'Brand Ready', price: '$950–1,200', desc: "The full content suite for a brand that's ready to show up consistently across every platform.", deliverables: '8 graphics · 3 short-form videos · 2 pages · 2 revisions · 10 day turnaround', tag: 'Most Popular' },
+    { name: 'All In', price: '$1,500–1,800', desc: 'The complete package. Everything you need to launch, promote, and sustain a brand presence — including a strategy call.', deliverables: '12 graphics · 5 short-form videos · 3 pages · Brand kit · Strategy call · 3 revisions', tag: '' },
+    { name: 'Monthly Retainer', price: "Custom — let's talk", desc: 'Full ongoing content support — graphics, video, and page updates on a recurring monthly basis.', deliverables: 'Monthly graphics + videos + page updates · Priority turnaround', tag: '' }
+  ]
+};
 
-  function buildPackages(service) {
-    const container = document.getElementById('packages-container');
-    const pkgs = packages[service] || packages['Full Package'];
-    container.innerHTML = pkgs.map(p => `
-      <div class="option-card" data-step="2" data-value="${p.name} — ${p.price}" onclick="selectOption(this)">
-        ${p.tag ? `<div class="option-tag">${p.tag}</div>` : ''}
-        <div class="option-name">${p.name}</div>
-        <div class="option-desc">${p.desc}</div>
-        <div class="option-price" style="margin-top:0.8rem;">${p.price}</div>
-        <div style="font-size:0.75rem;color:#aaa;margin-top:0.4rem;line-height:1.5;">${p.deliverables}</div>
-      </div>
-    `).join('');
-    document.getElementById('next-2').disabled = true;
-    state.package = null;
+function buildPackages(service) {
+  const container = document.getElementById('packages-container');
+  const pkgs = packages[service] || packages['Full Package'];
+  container.innerHTML = pkgs.map(p => `
+    <div class="option-card" data-step="2" data-value="${p.name} — ${p.price}" onclick="selectOption(this)">
+      ${p.tag ? `<div class="option-tag">${p.tag}</div>` : ''}
+      <div class="option-name">${p.name}</div>
+      <div class="option-desc">${p.desc}</div>
+      <div class="option-price" style="margin-top:0.8rem;">${p.price}</div>
+      <div style="font-size:0.75rem;color:#aaa;margin-top:0.4rem;line-height:1.5;">${p.deliverables}</div>
+    </div>
+  `).join('');
+  document.getElementById('next-2').disabled = true;
+  state.package = null;
+}
+
+function selectOption(el) {
+  const card = el.closest('[data-step]');
+  if (!card) return;
+  const step = card.dataset.step;
+  document.querySelectorAll(`[data-step="${step}"]`).forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  const val = card.dataset.value;
+  if (step === '1') { state.service = val; document.getElementById('next-1').disabled = false; }
+  if (step === '2') { state.package = val; document.getElementById('next-2').disabled = false; }
+  if (step === '3') { state.style = val; document.getElementById('next-3').disabled = false; }
+}
+
+function validateStep5() {
+  const ok = ['fname','lname','email','bizname'].every(id => document.getElementById(id).value.trim());
+  document.getElementById('next-5').disabled = !ok;
+}
+
+function goTo(step) {
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('success').classList.remove('active');
+  for (let i = 1; i <= 6; i++) {
+    const prog = document.getElementById(`prog-${i}`);
+    prog.classList.remove('active','done');
+    if (i < step) prog.classList.add('done');
+    else if (i === step) prog.classList.add('active');
   }
-
-  function selectOption(el) {
-    const step = el.dataset.step;
-    document.querySelectorAll(`[data-step="${step}"]`).forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    const val = el.dataset.value;
-    if (step === '1') {
-      state.service = val;
-      document.getElementById('next-1').disabled = false;
-    }
-    if (step === '2') { state.package = val; document.getElementById('next-2').disabled = false; }
-    if (step === '3') { state.style = val; document.getElementById('next-3').disabled = false; }
+  if (step <= 6) document.getElementById(`step-${step}`).classList.add('active');
+  if (step === 2 && state.service) buildPackages(state.service);
+  if (step === 6) {
+    document.getElementById('sum-service').textContent = state.service || '—';
+    document.getElementById('sum-package').textContent = state.package || '—';
+    document.getElementById('sum-style').textContent = state.style || '—';
+    document.getElementById('sum-addons').textContent = state.addons.length ? state.addons.join(', ') : 'None';
+    document.getElementById('sum-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
+    document.getElementById('sum-email').textContent = document.getElementById('email').value;
+    document.getElementById('sum-phone').textContent = document.getElementById('phone').value || '—';
+    document.getElementById('sum-biz').textContent = document.getElementById('bizname').value;
+    document.getElementById('sum-deadline').textContent = document.getElementById('deadline').value || '—';
+    document.getElementById('sum-assets').textContent = document.getElementById('assets').value || '—';
+    document.getElementById('sum-details').textContent = document.getElementById('details').value || '—';
   }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-  function validateStep5() {
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const biz = document.getElementById('bizname').value.trim();
-    document.getElementById('next-5').disabled = !(fname && lname && email && biz);
+async function submitForm() {
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  const formData = new FormData();
+  formData.append('service', state.service);
+  formData.append('package', state.package);
+  formData.append('style', state.style);
+  formData.append('addons', state.addons.length ? state.addons.join(', ') : 'None');
+  formData.append('name', `${document.getElementById('fname').value} ${document.getElementById('lname').value}`);
+  formData.append('email', document.getElementById('email').value);
+  formData.append('phone', document.getElementById('phone').value);
+  formData.append('business', document.getElementById('bizname').value);
+  formData.append('deadline', document.getElementById('deadline').value);
+  formData.append('assets', document.getElementById('assets').value);
+  formData.append('details', document.getElementById('details').value);
+  try {
+    const res = await fetch('https://formspree.io/f/mjgaverg', {
+      method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) { showSuccess(); }
+    else { btn.textContent = 'Submit →'; btn.disabled = false; alert('Something went wrong. Please try again.'); }
+  } catch(e) {
+    btn.textContent = 'Submit →'; btn.disabled = false;
+    alert('Something went wrong. Please check your connection and try again.');
   }
+}
 
-  function goTo(step) {
-    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('success').classList.remove('active');
-
-    // Update progress
-    for (let i = 1; i <= 6; i++) {
-      const prog = document.getElementById(`prog-${i}`);
-      prog.classList.remove('active', 'done');
-      if (i < step) prog.classList.add('done');
-      else if (i === step) prog.classList.add('active');
-    }
-
-    if (step <= 6) {
-      document.getElementById(`step-${step}`).classList.add('active');
-    }
-
-    // Build dynamic packages when entering step 2
-    if (step === 2 && state.service) {
-      buildPackages(state.service);
-    }
-
-    // Populate summary on step 6
-    if (step === 6) {
-      document.getElementById('sum-service').textContent = state.service || '—';
-      document.getElementById('sum-package').textContent = state.package || '—';
-      document.getElementById('sum-style').textContent = state.style || '—';
-      document.getElementById('sum-addons').textContent = state.addons.length ? state.addons.join(', ') : 'None';
-      document.getElementById('sum-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
-      document.getElementById('sum-email').textContent = document.getElementById('email').value;
-      document.getElementById('sum-phone').textContent = document.getElementById('phone').value || '—';
-      document.getElementById('sum-biz').textContent = document.getElementById('bizname').value;
-      document.getElementById('sum-deadline').textContent = document.getElementById('deadline').value || '—';
-      document.getElementById('sum-assets').textContent = document.getElementById('assets').value || '—';
-      document.getElementById('sum-details').textContent = document.getElementById('details').value || '—';
-    }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+function showSuccess() {
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  for (let i = 1; i <= 6; i++) {
+    const prog = document.getElementById(`prog-${i}`);
+    prog.classList.remove('active');
+    prog.classList.add('done');
   }
-
-  async function submitForm() {
-    const btn = document.getElementById('submit-btn');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    const formData = new FormData();
-    formData.append('service', state.service);
-    formData.append('package', state.package);
-    formData.append('style', state.style);
-    formData.append('addons', state.addons.length ? state.addons.join(', ') : 'None');
-    formData.append('name', `${document.getElementById('fname').value} ${document.getElementById('lname').value}`);
-    formData.append('email', document.getElementById('email').value);
-    formData.append('phone', document.getElementById('phone').value);
-    formData.append('business', document.getElementById('bizname').value);
-    formData.append('deadline', document.getElementById('deadline').value);
-    formData.append('assets', document.getElementById('assets').value);
-    formData.append('details', document.getElementById('details').value);
-
-    try {
-      const res = await fetch('https://formspree.io/f/mjgaverg', {
-        method: 'POST', body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        showSuccess();
-      } else {
-        btn.textContent = 'Submit →';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again.');
-      }
-    } catch(e) {
-      btn.textContent = 'Submit →';
-      btn.disabled = false;
-      alert('Something went wrong. Please check your connection and try again.');
-    }
-  }
-
-  function showSuccess() {
-    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
-    for (let i = 1; i <= 6; i++) {
-      const prog = document.getElementById(`prog-${i}`);
-      prog.classList.remove('active');
-      prog.classList.add('done');
-    }
-    document.getElementById('suc-service').textContent = state.service || '—';
-    document.getElementById('suc-package').textContent = state.package || '—';
-    document.getElementById('suc-style').textContent = state.style || '—';
-    document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementById('lname').value}`;
-    document.getElementById('suc-email').textContent = document.getElementById('email').value;
-    document.getElementById('success').classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-
-</body>
-</html>
+  document.getElementById('suc-service').textContent = state.service || '—';
+  document.getElementById('suc-package').textContent = state.package || '—';
+  document.getElementById('suc-style').textContent = state.style || '—';
+  document.getElementById('suc-name').textContent = `${document.getElementById('fname').value} ${document.getElementBy
