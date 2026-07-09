@@ -93,7 +93,7 @@
     <h2 class="wizard-step-title">What Do You Need?</h2>
     <p class="wizard-step-desc">Pick the service that fits your project.</p>
 
-    <div class="wizard-cards">
+    <div class="wizard-cards wizard-cards-3">
       <button type="button" class="wizard-card" data-service="photography">
         <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
         <span class="wizard-card-title">Photography</span>
@@ -112,12 +112,40 @@
         <span class="wizard-card-desc">Recurring graphic systems that keep your channels alive and on-brand.</span>
         <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
       </button>
+      <button type="button" class="wizard-card" data-service="branding">
+        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-11 11H6v-4z"></path><path d="M14.5 5.5l4 4"></path></svg></span>
+        <span class="wizard-card-title">Custom Branding &amp; Design</span>
+        <span class="wizard-card-desc">Logos, identity systems, print, and event materials — scoped to your project.</span>
+        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+      </button>
       <button type="button" class="wizard-card" data-service="impact" id="card-impact" hidden>
         <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg></span>
         <span class="wizard-card-title">Impact Content Kit</span>
         <span class="wizard-card-desc">30 days of strategic content — a trial run before you commit to more.</span>
         <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
       </button>
+    </div>
+
+    <div id="branding-suboptions" hidden>
+      <div class="wizard-suboptions-label">Which kind of design work?</div>
+      <div class="wizard-suboption-grid">
+        <button type="button" class="wizard-suboption-card" data-branding-sub="logo">
+          <span>Logo Design</span>
+          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+        </button>
+        <button type="button" class="wizard-suboption-card" data-branding-sub="identity">
+          <span>Brand Identity Packages</span>
+          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+        </button>
+        <button type="button" class="wizard-suboption-card" data-branding-sub="booklets">
+          <span>Booklets &amp; Print Collateral</span>
+          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+        </button>
+        <button type="button" class="wizard-suboption-card" data-branding-sub="event">
+          <span>Event Materials</span>
+          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+        </button>
+      </div>
     </div>
 
     <div class="wizard-btn-row">

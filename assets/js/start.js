@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
         shootday: { name: 'With Shoot Day', price: 750 },
       },
     },
+    branding: {
+      label: 'Custom Branding & Design',
+      custom: true,
+      subServices: {
+        logo: { name: 'Logo Design' },
+        identity: { name: 'Brand Identity Packages' },
+        booklets: { name: 'Booklets & Print Collateral' },
+        event: { name: 'Event Materials' },
+      },
+    },
   };
 
   const state = {
@@ -44,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     service: null,
     addons: { shootDay: false, singleGraphic: false, singleVideo: false },
     impactOption: null,
+    brandingSubService: null,
     submitting: false,
     submitted: false,
   };
@@ -55,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const { clientType, service, impactOption } = state;
     if (!clientType || !service) return 0;
     if (service === 'impact') return impactOption ? SERVICES.impact.options[impactOption].price : 0;
+    if (service === 'branding') return 0;
     const tier = SERVICES[service].tiers[clientType];
     return tier ? tier.price : 0;
   }
@@ -70,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getBreakdownLines() {
-    const { service, clientType, addons, impactOption } = state;
+    const { service, clientType, addons, impactOption, brandingSubService } = state;
     const lines = [];
     if (!service || !clientType) return lines;
     if (service === 'impact') {
@@ -78,6 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const opt = SERVICES.impact.options[impactOption];
         lines.push({ label: opt.name, priceLabel: '$' + opt.price });
       }
+      return lines;
+    }
+    if (service === 'branding') {
+      const sub = brandingSubService ? SERVICES.branding.subServices[brandingSubService] : null;
+      lines.push({ label: sub ? sub.name : SERVICES.branding.label, priceLabel: 'Custom Quote' });
+      if (addons.singleGraphic) lines.push({ label: 'Single graphic / flier', priceLabel: '+$75' });
+      if (addons.singleVideo) lines.push({ label: 'Single short-form video', priceLabel: '+$125' });
       return lines;
     }
     const svc = SERVICES[service];
@@ -89,6 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return lines;
   }
 
+  function getTotalLabel() {
+    const addonTotal = getAddonTotal();
+    if (state.service === 'branding') {
+      return addonTotal > 0 ? ('Custom Quote + $' + addonTotal + ' add-ons') : 'Custom Quote';
+    }
+    return '$' + (getBasePrice() + addonTotal);
+  }
+
   function renderBreakdown(container) {
     const lines = getBreakdownLines();
     container.innerHTML = lines.map((l) => (
@@ -98,6 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function serviceLabel() {
+    if (!state.service) return '';
+    if (state.service === 'branding') {
+      const sub = state.brandingSubService ? SERVICES.branding.subServices[state.brandingSubService] : null;
+      return SERVICES.branding.label + (sub ? ' — ' + sub.name : '');
+    }
+    return SERVICES[state.service].label;
   }
 
   function goStep(n) {
@@ -137,7 +173,15 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.toggle('is-selected', state.service === card.dataset.service);
     });
     $('card-impact').hidden = state.clientType !== 'personal';
-    $('next2').disabled = !state.service;
+
+    // Step 2: branding sub-options
+    const showBrandingSub = state.service === 'branding';
+    $('branding-suboptions').hidden = !showBrandingSub;
+    document.querySelectorAll('[data-branding-sub]').forEach((card) => {
+      card.classList.toggle('is-selected', state.brandingSubService === card.dataset.brandingSub);
+    });
+
+    $('next2').disabled = !state.service || (state.service === 'branding' && !state.brandingSubService);
 
     // Step 3: package + addons
     const showStandard = !!state.service && state.service !== 'impact';
@@ -146,11 +190,19 @@ document.addEventListener('DOMContentLoaded', () => {
     $('impact-package-block').hidden = !showImpact;
 
     if (showStandard) {
-      const svc = SERVICES[state.service];
-      const tier = svc.tiers[state.clientType];
-      $('package-eyebrow').textContent = svc.label + ' — ' + CLIENT_TYPES[state.clientType].label;
-      $('package-price').textContent = tier ? '$' + tier.price : '';
-      $('package-deliverable').textContent = tier ? tier.deliverable : '';
+      const isBranding = state.service === 'branding';
+      const svc = isBranding ? null : SERVICES[state.service];
+      const tier = svc ? svc.tiers[state.clientType] : null;
+      const brandingSub = state.brandingSubService ? SERVICES.branding.subServices[state.brandingSubService] : null;
+
+      $('package-eyebrow').textContent = isBranding
+        ? (brandingSub ? brandingSub.name : SERVICES.branding.label)
+        : (svc.label + ' — ' + CLIENT_TYPES[state.clientType].label);
+      $('package-price').textContent = isBranding ? 'Custom Quote' : (tier ? '$' + tier.price : '');
+      $('package-deliverable').textContent = isBranding
+        ? "Pricing scoped to your project — we'll follow up with a custom quote."
+        : (tier ? tier.deliverable : '');
+
       const turnaroundEl = $('package-turnaround');
       if (tier && tier.turnaround) {
         turnaroundEl.textContent = tier.turnaround;
@@ -159,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         turnaroundEl.hidden = true;
       }
       const noteEl = $('package-note');
-      if (svc.note) {
+      if (svc && svc.note) {
         noteEl.textContent = svc.note;
         noteEl.hidden = false;
       } else {
@@ -178,9 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    const total = getBasePrice() + getAddonTotal();
+    const totalLabel = getTotalLabel();
     renderBreakdown($('breakdown-lines'));
-    $('total-label-3').textContent = '$' + total;
+    $('total-label-3').textContent = totalLabel;
 
     $('next3').disabled = state.service === 'impact' ? !state.impactOption : false;
 
@@ -189,9 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Step 5 review
     $('sum-clienttype').textContent = state.clientType ? CLIENT_TYPES[state.clientType].label : '—';
-    $('sum-service').textContent = state.service ? SERVICES[state.service].label : '—';
+    $('sum-service').textContent = state.service ? serviceLabel() : '—';
     renderBreakdown($('breakdown-lines-5'));
-    $('total-label-5').textContent = '$' + total;
+    $('total-label-5').textContent = totalLabel;
     $('sum-name').textContent = (fieldVal('f-fname') + ' ' + fieldVal('f-lname')).trim() || '—';
     $('sum-email').textContent = fieldVal('f-email') || '—';
     $('sum-phone').textContent = fieldVal('f-phone') || '—';
@@ -206,8 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Success panel
     if (state.submitted) {
       $('succ-clienttype').textContent = state.clientType ? CLIENT_TYPES[state.clientType].label : '—';
-      $('succ-service').textContent = state.service ? SERVICES[state.service].label : '—';
-      $('succ-total').textContent = '$' + total;
+      $('succ-service').textContent = state.service ? serviceLabel() : '—';
+      $('succ-total').textContent = totalLabel;
       $('succ-name').textContent = (fieldVal('f-fname') + ' ' + fieldVal('f-lname')).trim() || '—';
     }
   }
@@ -222,14 +274,14 @@ document.addEventListener('DOMContentLoaded', () => {
     state.submitting = true;
     render();
 
-    const svcLabel = state.service ? SERVICES[state.service].label : '';
-    const total = getBasePrice() + getAddonTotal();
+    const svcLabel = serviceLabel();
+    const totalLabel = getTotalLabel();
 
     const formData = new FormData();
     formData.append('clientType', state.clientType ? CLIENT_TYPES[state.clientType].label : '');
     formData.append('service', svcLabel);
     formData.append('package', getBreakdownLines().map((l) => l.label + ' ' + l.priceLabel).join(', '));
-    formData.append('total', '$' + total);
+    formData.append('total', totalLabel);
     formData.append('name', `${fieldVal('f-fname')} ${fieldVal('f-lname')}`);
     formData.append('email', fieldVal('f-email'));
     formData.append('phone', fieldVal('f-phone'));
@@ -261,6 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
       state.service = null;
       state.addons = { shootDay: false, singleGraphic: false, singleVideo: false };
       state.impactOption = null;
+      state.brandingSubService = null;
       render();
     });
   });
@@ -271,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       state.service = card.dataset.service;
       state.addons = { shootDay: false, singleGraphic: false, singleVideo: false };
       state.impactOption = null;
+      state.brandingSubService = null;
       render();
     });
   });
@@ -278,6 +332,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-impact]').forEach((card) => {
     card.addEventListener('click', () => {
       state.impactOption = card.dataset.impact;
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-branding-sub]').forEach((card) => {
+    card.addEventListener('click', () => {
+      state.brandingSubService = card.dataset.brandingSub;
       render();
     });
   });
