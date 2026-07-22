@@ -12,315 +12,401 @@
 </head>
 <body>
 
-<header class="site-header">
-  <nav class="site-nav">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/images/waymaker-logo.png" alt="Waymaker Studios">
-    </a>
-    <div class="nav-links">
-      <a href="index.html#work" class="nav-link">Work</a>
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="index.html#kit" class="nav-link">Impact Kit</a>
-      <a href="index.html#about" class="nav-link">About</a>
-      <a href="start.html" class="nav-cta">Get Started</a>
-    </div>
-    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
-      <span class="bars">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-        <span class="bar bar-3"></span>
-      </span>
-    </button>
-  </nav>
-  <div class="mobile-menu">
-    <a href="index.html#work" class="nav-link">Work</a>
-    <a href="index.html#services" class="nav-link">Services</a>
-    <a href="index.html#kit" class="nav-link">Impact Kit</a>
-    <a href="index.html#about" class="nav-link">About</a>
-    <a href="start.html" class="nav-cta">Get Started</a>
-  </div>
-</header>
-
-<section class="wizard-hero">
-  <div class="wizard-kicker">Waymaker Studios</div>
-  <h1 class="wizard-h1">Start Your <span>PROJECT</span></h1>
-  <p class="wizard-sub">Your vision, brought to life.</p>
-  <p class="wizard-tagline">Five steps to a clear scope and price. We'll follow up within 24 hours.</p>
-</section>
-
-<div class="wizard-progress">
-  <div class="wizard-progress-track" id="progress-track">
-    <div class="wizard-progress-line"></div>
-    <div class="wizard-step-dot" data-dot="1"><div class="wizard-step-num">1</div><span class="wizard-step-label">Type</span></div>
-    <div class="wizard-step-dot" data-dot="2"><div class="wizard-step-num">2</div><span class="wizard-step-label">Service</span></div>
-    <div class="wizard-step-dot" data-dot="3"><div class="wizard-step-num">3</div><span class="wizard-step-label">Package</span></div>
-    <div class="wizard-step-dot" data-dot="4"><div class="wizard-step-num">4</div><span class="wizard-step-label">Details</span></div>
-    <div class="wizard-step-dot" data-dot="5"><div class="wizard-step-num">5</div><span class="wizard-step-label">Review</span></div>
-  </div>
-</div>
-
-<div class="wizard-body">
-
-  <!-- STEP 1: CLIENT TYPE -->
-  <div class="wizard-step-panel" data-step="1">
-    <div class="wizard-step-eyebrow">Step 1 of 5</div>
-    <h2 class="wizard-step-title">Who's This For?</h2>
-    <p class="wizard-step-desc">Pricing and options are tailored to fit — tell us who we're creating for.</p>
-
-    <div class="wizard-cards">
-      <button type="button" class="wizard-card" data-client="personal">
-        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></span>
-        <span class="wizard-card-title">Personal &amp; Small Business</span>
-        <span class="wizard-card-desc">Solo creators, local businesses, and small teams building a brand.</span>
-        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
-      </button>
-      <button type="button" class="wizard-card" data-client="corporate">
-        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="10" height="18"></rect><rect x="14" y="9" width="6" height="12"></rect><rect x="6.6" y="6.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect><rect x="10.6" y="6.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect><rect x="6.6" y="10.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect><rect x="10.6" y="10.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect></svg></span>
-        <span class="wizard-card-title">Corporate &amp; Enterprise</span>
-        <span class="wizard-card-desc">Larger organizations needing scale, consistency, and volume.</span>
-        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
-      </button>
-    </div>
-
-    <div class="wizard-btn-row">
-      <button type="button" class="wizard-btn-primary" id="next1" disabled>Next →</button>
-    </div>
-  </div>
-
-  <!-- STEP 2: SERVICE -->
-  <div class="wizard-step-panel" data-step="2" hidden>
-    <div class="wizard-step-eyebrow">Step 2 of 5</div>
-    <h2 class="wizard-step-title">What Do You Need?</h2>
-    <p class="wizard-step-desc">Pick the service that fits your project.</p>
-
-    <div class="wizard-cards wizard-cards-3">
-      <button type="button" class="wizard-card" data-service="photography">
-        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
-        <span class="wizard-card-title">Photography</span>
-        <span class="wizard-card-desc">Editorial and brand photography, shot warm and composed with intent.</span>
-        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
-      </button>
-      <button type="button" class="wizard-card" data-service="videography">
-        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"></rect><path d="M16 10l6-3v10l-6-3z"></path></svg></span>
-        <span class="wizard-card-title">Videography</span>
-        <span class="wizard-card-desc">Films and reels that carry the exact emotion of the work.</span>
-        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
-      </button>
-      <button type="button" class="wizard-card" data-service="social">
-        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"></rect><rect x="13" y="3" width="8" height="8" rx="1"></rect><rect x="3" y="13" width="8" height="8" rx="1"></rect><rect x="13" y="13" width="8" height="8" rx="1"></rect></svg></span>
-        <span class="wizard-card-title">Social Media Content</span>
-        <span class="wizard-card-desc">Recurring graphic systems that keep your channels alive and on-brand.</span>
-        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
-      </button>
-      <button type="button" class="wizard-card" data-service="branding">
-        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-11 11H6v-4z"></path><path d="M14.5 5.5l4 4"></path></svg></span>
-        <span class="wizard-card-title">Custom Branding &amp; Design</span>
-        <span class="wizard-card-desc">Logos, identity systems, print, and event materials — scoped to your project.</span>
-        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
-      </button>
-      <button type="button" class="wizard-card" data-service="impact" id="card-impact" hidden>
-        <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg></span>
-        <span class="wizard-card-title">Impact Content Kit</span>
-        <span class="wizard-card-desc">30 days of strategic content — a trial run before you commit to more.</span>
-        <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
-      </button>
-    </div>
-
-    <div id="branding-suboptions" hidden>
-      <div class="wizard-suboptions-label">Which kind of design work?</div>
-      <div class="wizard-suboption-grid">
-        <button type="button" class="wizard-suboption-card" data-branding-sub="logo">
-          <span>Logo Design</span>
-          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
-        </button>
-        <button type="button" class="wizard-suboption-card" data-branding-sub="identity">
-          <span>Brand Identity Packages</span>
-          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
-        </button>
-        <button type="button" class="wizard-suboption-card" data-branding-sub="booklets">
-          <span>Booklets &amp; Print Collateral</span>
-          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
-        </button>
-        <button type="button" class="wizard-suboption-card" data-branding-sub="event">
-          <span>Event Materials</span>
-          <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="wizard-btn-row">
-      <button type="button" class="wizard-btn-primary" id="next2" disabled>Next →</button>
-      <button type="button" class="wizard-btn-back" id="back1">← Back</button>
-    </div>
-  </div>
-
-  <!-- STEP 3: PACKAGE DETAILS -->
-  <div class="wizard-step-panel" data-step="3" hidden>
-    <div class="wizard-step-eyebrow">Step 3 of 5</div>
-    <h2 class="wizard-step-title">Your Package.</h2>
-    <p class="wizard-step-desc">Here's exactly what's included — plus a few ways to add on.</p>
-
-    <div id="standard-package-block" hidden>
-      <div class="wizard-package-card">
-        <div class="wizard-package-eyebrow" id="package-eyebrow"></div>
-        <div class="wizard-package-price" id="package-price"></div>
-        <div class="wizard-package-line" id="package-deliverable"></div>
-        <div class="wizard-package-line" id="package-turnaround" hidden></div>
-        <div class="wizard-package-note" id="package-note" hidden></div>
-      </div>
-
-      <div class="wizard-addons-title">Add-Ons</div>
-      <div class="wizard-addons">
-        <div class="wizard-addon" id="addon-shootday" hidden>
-          <label class="wizard-checkbox">
-            <input type="checkbox" id="chk-shootday">
-            <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
-            <span class="wizard-checkbox-label">Content Shoot Day</span>
-          </label>
-          <span class="wizard-addon-price" id="shootday-price"></span>
-        </div>
-        <div class="wizard-addon">
-          <label class="wizard-checkbox">
-            <input type="checkbox" id="chk-graphic">
-            <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
-            <span class="wizard-checkbox-label">Single graphic / flier</span>
-          </label>
-          <span class="wizard-addon-price">+$75</span>
-        </div>
-        <div class="wizard-addon">
-          <label class="wizard-checkbox">
-            <input type="checkbox" id="chk-video">
-            <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
-            <span class="wizard-checkbox-label">Single short-form video</span>
-          </label>
-          <span class="wizard-addon-price">+$125</span>
-        </div>
-      </div>
-    </div>
-
-    <div id="impact-package-block" hidden>
-      <p class="wizard-impact-quote">Get 30 days of strategic content delivered to you. Give it a trial run — see the results, then decide if a monthly retainer is the move.</p>
-      <div class="wizard-impact-options">
-        <button type="button" class="wizard-impact-card" data-impact="assets">
-          <div>
-            <div class="wizard-impact-card-title">Assets Provided</div>
-            <div class="wizard-impact-card-desc">30 days of strategic content: graphics, captions, and post scheduling.</div>
-          </div>
-          <div class="wizard-impact-card-price">$500</div>
-        </button>
-        <button type="button" class="wizard-impact-card" data-impact="shootday">
-          <div>
-            <div class="wizard-impact-card-title">With Shoot Day</div>
-            <div class="wizard-impact-card-desc">Everything in Assets Provided, plus a 1–2hr on-location shoot (Texas only).</div>
-          </div>
-          <div class="wizard-impact-card-price">$750</div>
-        </button>
-      </div>
-    </div>
-
-    <div class="wizard-total-box">
-      <div class="wizard-total-title">Your Total</div>
-      <div id="breakdown-lines"></div>
-      <div class="wizard-total-sum"><span>Total</span><span id="total-label-3">$0</span></div>
-    </div>
-
-    <div class="wizard-btn-row">
-      <button type="button" class="wizard-btn-primary" id="next3">Next →</button>
-      <button type="button" class="wizard-btn-back" id="back2">← Back</button>
-    </div>
-  </div>
-
-  <!-- STEP 4: YOUR DETAILS -->
-  <div class="wizard-step-panel" data-step="4" hidden>
-    <div class="wizard-step-eyebrow">Step 4 of 5</div>
-    <h2 class="wizard-step-title">Tell Us About You.</h2>
-    <p class="wizard-step-desc">Almost there — just a few details so we can reach out and get started.</p>
-
-    <div class="wizard-field-row">
-      <div class="wizard-field"><span class="wizard-field-label">First Name</span><input type="text" id="f-fname" placeholder="Jane"></div>
-      <div class="wizard-field"><span class="wizard-field-label">Last Name</span><input type="text" id="f-lname" placeholder="Smith"></div>
-    </div>
-    <div class="wizard-field-row">
-      <div class="wizard-field"><span class="wizard-field-label">Email</span><input type="email" id="f-email" placeholder="jane@yourbrand.com"></div>
-      <div class="wizard-field"><span class="wizard-field-label">Phone</span><input type="tel" id="f-phone" placeholder="(000) 000-0000"></div>
-    </div>
-    <div class="wizard-field">
-      <span class="wizard-field-label">Business / Event Name</span>
-      <input type="text" id="f-bizname" placeholder="Your brand or event name">
-    </div>
-    <div class="wizard-field-row">
-      <div class="wizard-field"><span class="wizard-field-label">Deadline / Event Date</span><input type="text" id="f-deadline" placeholder="e.g. March 15 or ASAP"></div>
-      <div class="wizard-field"><span class="wizard-field-label">Footage / Assets Link</span><input type="text" id="f-assets" placeholder="Google Drive or Dropbox link"></div>
-    </div>
-    <div class="wizard-field">
-      <span class="wizard-field-label">Project Details</span>
-      <textarea id="f-details" rows="4" placeholder="Tell us anything else we should know about your project, event, or brand..."></textarea>
-    </div>
-
-    <div class="wizard-btn-row">
-      <button type="button" class="wizard-btn-primary" id="next4" disabled>Review My Order →</button>
-      <button type="button" class="wizard-btn-back" id="back3">← Back</button>
-    </div>
-  </div>
-
-  <!-- STEP 5: REVIEW & SUBMIT -->
-  <div class="wizard-step-panel" data-step="5" hidden>
-    <div class="wizard-step-eyebrow">Step 5 of 5</div>
-    <h2 class="wizard-step-title">Review &amp; Submit.</h2>
-    <p class="wizard-step-desc">Double-check your selections before we get started.</p>
-
-    <div class="wizard-review-box wizard-sunk">
-      <div class="wizard-review-title">Your Order</div>
-      <div class="wizard-review-line"><span>Client Type</span><span id="sum-clienttype">—</span></div>
-      <div class="wizard-review-line"><span>Service</span><span id="sum-service">—</span></div>
-      <div id="breakdown-lines-5"></div>
-      <div class="wizard-total-sum"><span>Total</span><span id="total-label-5">$0</span></div>
-    </div>
-
-    <div class="wizard-review-box wizard-card-bg">
-      <div class="wizard-review-title">Your Details</div>
-      <div class="wizard-review-line"><span>Name</span><span id="sum-name">—</span></div>
-      <div class="wizard-review-line"><span>Email</span><span id="sum-email">—</span></div>
-      <div class="wizard-review-line"><span>Phone</span><span id="sum-phone">—</span></div>
-      <div class="wizard-review-line"><span>Business / Event</span><span id="sum-biz">—</span></div>
-      <div class="wizard-review-line"><span>Deadline</span><span id="sum-deadline">—</span></div>
-      <div class="wizard-review-line"><span>Assets Link</span><span id="sum-assets">—</span></div>
-      <div class="wizard-review-line" style="border-bottom:none;"><span>Project Details</span><span id="sum-details">—</span></div>
-    </div>
-
-    <div class="wizard-btn-row">
-      <button type="button" class="wizard-btn-primary wizard-btn-accent" id="submit-order">Submit →</button>
-      <button type="button" class="wizard-btn-back" id="back4">← Edit</button>
-    </div>
-  </div>
-
-  <!-- SUCCESS -->
-  <div class="wizard-step-panel wizard-success" data-step="success" hidden>
-    <div class="wizard-success-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg></div>
-    <h2 class="wizard-success-title">You're All Set.</h2>
-    <p class="wizard-success-desc">Thanks for reaching out. We'll review your project and get back to you within 24 hours.</p>
-    <div class="wizard-success-card">
-      <div class="wizard-success-line"><span>Client Type</span><span id="succ-clienttype">—</span></div>
-      <div class="wizard-success-line"><span>Service</span><span id="succ-service">—</span></div>
-      <div class="wizard-success-line"><span>Total</span><span id="succ-total">$0</span></div>
-      <div class="wizard-success-line"><span>Name</span><span id="succ-name">—</span></div>
-    </div>
-    <a href="index.html" class="wizard-success-back">← Back to Waymaker Studios</a>
-  </div>
-
-</div>
-
-<footer class="site-footer">
-  <span class="footer-logo">
+<nav class="gate-nav">
+  <a href="index.html" class="gate-nav-logo">
     <img src="assets/images/waymaker-logo.png" alt="Waymaker Studios">
-    WAYMAKER STUDIOS
-  </span>
-  <div class="footer-social">
-    <a href="https://instagram.com/waymaker.studios" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:seinga@waymakerstudios.co">seinga@waymakerstudios.co</a>
+  </a>
+  <a href="index.html" class="gate-nav-back">← Back to site</a>
+</nav>
+
+<div class="wizard2-shell">
+
+  <aside class="wizard2-sidebar">
+    <div class="wizard2-sidebar-kicker">Waymaker Studios</div>
+    <h1 class="wizard2-sidebar-title">Start Your Project</h1>
+    <p class="wizard2-sidebar-desc">Five steps to a clear scope and price. We'll follow up within 24 hours.</p>
+
+    <div class="wizard2-rail" id="rail">
+      <div class="wizard2-rail-line"></div>
+      <div class="wizard2-rail-step" data-dot="1"><div class="wizard2-rail-num">1</div><span class="wizard2-rail-label">Type</span></div>
+      <div class="wizard2-rail-step" data-dot="2"><div class="wizard2-rail-num">2</div><span class="wizard2-rail-label">Service</span></div>
+      <div class="wizard2-rail-step" data-dot="3"><div class="wizard2-rail-num">3</div><span class="wizard2-rail-label">Package</span></div>
+      <div class="wizard2-rail-step" data-dot="4"><div class="wizard2-rail-num">4</div><span class="wizard2-rail-label">Details</span></div>
+      <div class="wizard2-rail-step" data-dot="5"><div class="wizard2-rail-num">5</div><span class="wizard2-rail-label">Review</span></div>
+    </div>
+  </aside>
+
+  <div class="wizard2-main">
+    <div class="wizard2-content">
+
+      <!-- STEP 1: CLIENT TYPE -->
+      <div class="wizard-step-panel" data-step="1">
+        <div class="wizard-step-eyebrow">Step 1 of 5</div>
+        <h2 class="wizard-step-title">Who's This For?</h2>
+        <p class="wizard-step-desc">Pricing and options are tailored to fit — tell us who we're creating for.</p>
+
+        <div class="wizard-cards">
+          <button type="button" class="wizard-card" data-client="personal">
+            <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></span>
+            <span class="wizard-card-title">Personal &amp; Small Business</span>
+            <span class="wizard-card-desc">Solo creators, local businesses, and small teams building a brand.</span>
+            <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+          </button>
+          <button type="button" class="wizard-card" data-client="corporate">
+            <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="10" height="18"></rect><rect x="14" y="9" width="6" height="12"></rect><rect x="6.6" y="6.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect><rect x="10.6" y="6.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect><rect x="6.6" y="10.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect><rect x="10.6" y="10.4" width="1.4" height="1.4" fill="#263CFA" stroke="none"></rect></svg></span>
+            <span class="wizard-card-title">Corporate &amp; Enterprise</span>
+            <span class="wizard-card-desc">Larger organizations needing scale, consistency, and volume.</span>
+            <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+          </button>
+        </div>
+
+        <div class="wizard2-note-card" id="corporate-note-1" hidden>
+          <p>Corporate &amp; Enterprise pricing is scoped per project. Request our rate guide to see starting rates.</p>
+          <a href="rate-guide.html" class="btn">Request Rate Guide</a>
+        </div>
+
+        <div class="wizard-btn-row">
+          <button type="button" class="wizard-btn-primary" id="next1" disabled>Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: SERVICE -->
+      <div class="wizard-step-panel" data-step="2" hidden>
+        <div class="wizard-step-eyebrow">Step 2 of 5</div>
+        <h2 class="wizard-step-title">What Do You Need?</h2>
+        <p class="wizard-step-desc">Pick the service that fits your project.</p>
+
+        <div class="wizard-cards wizard-cards-3">
+          <button type="button" class="wizard-card" data-service="photography">
+            <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
+            <span class="wizard-card-title">Photography</span>
+            <span class="wizard-card-desc">Editorial and brand photography, shot warm and composed with intent.</span>
+            <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+          </button>
+          <button type="button" class="wizard-card" data-service="videography">
+            <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"></rect><path d="M16 10l6-3v10l-6-3z"></path></svg></span>
+            <span class="wizard-card-title">Videography</span>
+            <span class="wizard-card-desc">Films and reels that carry the exact emotion of the work.</span>
+            <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+          </button>
+          <button type="button" class="wizard-card" data-service="social">
+            <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"></rect><rect x="13" y="3" width="8" height="8" rx="1"></rect><rect x="3" y="13" width="8" height="8" rx="1"></rect><rect x="13" y="13" width="8" height="8" rx="1"></rect></svg></span>
+            <span class="wizard-card-title">Social Media Content</span>
+            <span class="wizard-card-desc">Graphics that keep your social channels and event on-brand.</span>
+            <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+          </button>
+          <button type="button" class="wizard-card" data-service="branding">
+            <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-11 11H6v-4z"></path><path d="M14.5 5.5l4 4"></path></svg></span>
+            <span class="wizard-card-title">Custom Branding &amp; Design</span>
+            <span class="wizard-card-desc">Logos, identity systems, print and event materials scoped to your project.</span>
+            <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+          </button>
+          <button type="button" class="wizard-card" data-service="impact" id="card-impact" hidden>
+            <span class="wizard-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg></span>
+            <span class="wizard-card-title">Impact Content Kit</span>
+            <span class="wizard-card-desc">30 days of strategic content — a trial run before you commit to more.</span>
+            <span class="wizard-card-selected"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Selected</span>
+          </button>
+        </div>
+
+        <div id="branding-suboptions" hidden>
+          <div class="wizard-suboptions-label">Which kind of design work?</div>
+          <div class="wizard-suboption-grid">
+            <button type="button" class="wizard-suboption-card" data-branding-sub="logo">
+              <span>Logo Design</span>
+              <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+            </button>
+            <button type="button" class="wizard-suboption-card" data-branding-sub="identity">
+              <span>Brand Identity Packages</span>
+              <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+            </button>
+            <button type="button" class="wizard-suboption-card" data-branding-sub="booklets">
+              <span>Booklets &amp; Print Collateral</span>
+              <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+            </button>
+            <button type="button" class="wizard-suboption-card" data-branding-sub="event">
+              <span>Event Materials</span>
+              <svg class="wizard-suboption-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="wizard-btn-row">
+          <button type="button" class="wizard-btn-primary" id="next2" disabled>Next →</button>
+          <button type="button" class="wizard-btn-back" id="back1">← Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: PACKAGE DETAILS -->
+      <div class="wizard-step-panel" data-step="3" hidden>
+        <div class="wizard-step-eyebrow">Step 3 of 5</div>
+        <h2 class="wizard-step-title">Your Package.</h2>
+        <p class="wizard-step-desc">Here's exactly what's included — plus a few ways to add on.</p>
+
+        <div class="wizard2-note-card" id="corporate-note-3" hidden>
+          <div class="wizard-package-eyebrow" id="corporate-eyebrow-3"></div>
+          <p>Corporate &amp; Enterprise pricing is scoped per project. <a href="rate-guide.html">Request our rate guide</a> to see starting rates.</p>
+        </div>
+
+        <div id="standard-package-block" hidden>
+          <div class="wizard-package-card">
+            <div class="wizard-package-eyebrow" id="package-eyebrow"></div>
+            <div class="wizard-package-price" id="package-price"></div>
+            <div class="wizard-package-line" id="package-deliverable"></div>
+            <div class="wizard-package-line" id="package-turnaround" hidden></div>
+          </div>
+
+          <div class="wizard-addons-title">Add-Ons</div>
+          <div class="wizard-addons">
+            <div class="wizard-addon has-sub" id="addon-shootday" hidden>
+              <div class="wizard-addon-row">
+                <label class="wizard-checkbox">
+                  <input type="checkbox" id="chk-shootday">
+                  <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
+                  <span class="wizard-checkbox-label">Content Shoot Day</span>
+                </label>
+                <span class="wizard-addon-price" id="shootday-price"></span>
+              </div>
+              <div class="wizard-addon-sub-row" id="shootday-subrow" hidden>
+                <div class="wizard-addon-sub-label">
+                  <span>Additional Shoot Hour</span>
+                  <span>$55 per hour beyond the 2-hour base session</span>
+                </div>
+                <input type="number" min="0" step="1" placeholder="0" class="wizard-mini-input" id="eh-social">
+              </div>
+            </div>
+
+            <div class="wizard-addon" id="addon-singlegraphic">
+              <label class="wizard-checkbox">
+                <input type="checkbox" id="chk-graphic">
+                <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
+                <span class="wizard-checkbox-label">Single graphic / flier</span>
+              </label>
+              <span class="wizard-addon-price">+$75</span>
+            </div>
+
+            <div class="wizard-addon">
+              <label class="wizard-checkbox">
+                <input type="checkbox" id="chk-video">
+                <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
+                <span class="wizard-checkbox-label">Single short-form video</span>
+              </label>
+              <span class="wizard-addon-price">+$125</span>
+            </div>
+
+            <div class="wizard-addon has-sub" id="addon-photo-editonly" hidden>
+              <div class="wizard-addon-row">
+                <label class="wizard-checkbox">
+                  <input type="checkbox" id="chk-photo-editonly">
+                  <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
+                  <span class="wizard-checkbox-label">Photo Editing Only</span>
+                </label>
+                <span class="wizard-addon-price">-$300</span>
+              </div>
+              <div class="wizard-addon-desc">Select this if you don't need the 2-hour shoot session and are sending your own photo assets for editing.</div>
+            </div>
+
+            <div class="wizard-addon has-sub" id="addon-photo-cleanup" hidden>
+              <div class="wizard-addon-row">
+                <label class="wizard-checkbox">
+                  <input type="checkbox" id="chk-photo-cleanup">
+                  <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
+                  <span class="wizard-checkbox-label">Photo Cleanup Add-on</span>
+                </label>
+                <span class="wizard-addon-price">+$100</span>
+              </div>
+              <div class="wizard-addon-desc">Covers face, body or environmental editing like background swaps or blemish removal.</div>
+            </div>
+
+            <div class="wizard-addon" id="addon-photo-hours" hidden>
+              <div class="wizard-addon-sub-label">
+                <span>Additional Shoot Hour</span>
+                <span>$55 per hour beyond the 2-hour base session</span>
+              </div>
+              <input type="number" min="0" step="1" placeholder="0" class="wizard-mini-input" id="eh-photo">
+            </div>
+
+            <div class="wizard-addon" id="addon-video-hours" hidden>
+              <div class="wizard-addon-sub-label">
+                <span>Additional Shoot Hour</span>
+                <span>$55 per hour beyond the 2-hour base session</span>
+              </div>
+              <input type="number" min="0" step="1" placeholder="0" class="wizard-mini-input" id="eh-video">
+            </div>
+
+            <div class="wizard-addon" id="addon-extra-graphics" hidden>
+              <div class="wizard-addon-sub-label">
+                <span>Extra Graphic Add-on</span>
+                <span>$50 per graphic beyond the base 4</span>
+              </div>
+              <input type="number" min="0" step="1" placeholder="0" class="wizard-mini-input" id="eg-qty">
+            </div>
+          </div>
+        </div>
+
+        <div id="impact-package-block" hidden>
+          <p class="wizard-impact-quote">30 days of strategic content delivered to you.<br>Give it a trial run, see the results, then decide if a monthly retainer is the right choice for you.</p>
+          <div class="wizard-impact-options">
+            <button type="button" class="wizard-impact-card" data-impact="assets">
+              <div>
+                <div class="wizard-impact-card-title">Assets Provided</div>
+                <div class="wizard-impact-card-desc">30 days of strategic content: graphics, captions, and post scheduling.</div>
+              </div>
+              <div class="wizard-impact-card-price">$500</div>
+            </button>
+            <button type="button" class="wizard-impact-card" data-impact="shootday">
+              <div>
+                <div class="wizard-impact-card-title">With Shoot Day</div>
+                <div class="wizard-impact-card-desc">Everything in Assets Provided, plus a 2-hour on-location shoot (Texas only).</div>
+              </div>
+              <div class="wizard-impact-card-price">$750</div>
+            </button>
+          </div>
+          <div class="wizard-addon" id="addon-impact-hours" hidden style="margin-bottom:28px;">
+            <div class="wizard-addon-sub-label">
+              <span>Additional Shoot Hour</span>
+              <span>$55 per hour beyond the 2-hour base session</span>
+            </div>
+            <input type="number" min="0" step="1" placeholder="0" class="wizard-mini-input" id="eh-impact">
+          </div>
+        </div>
+
+        <div class="wizard-total-box" id="running-total-box">
+          <div class="wizard-total-title">Your Total</div>
+          <div id="breakdown-lines"></div>
+          <div class="wizard-total-sum"><span>Total</span><span id="total-label-3">$0</span></div>
+        </div>
+
+        <div class="wizard-btn-row">
+          <button type="button" class="wizard-btn-primary" id="next3">Next →</button>
+          <button type="button" class="wizard-btn-back" id="back2">← Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: YOUR DETAILS -->
+      <div class="wizard-step-panel" data-step="4" hidden>
+        <div class="wizard-step-eyebrow">Step 4 of 5</div>
+        <h2 class="wizard-step-title">Tell Us About You.</h2>
+        <p class="wizard-step-desc">Almost there — just a few details so we can reach out and get started.</p>
+
+        <div class="wizard-field-row">
+          <div class="wizard-field"><span class="wizard-field-label">First Name</span><input type="text" id="f-fname" placeholder="Jane"></div>
+          <div class="wizard-field"><span class="wizard-field-label">Last Name</span><input type="text" id="f-lname" placeholder="Smith"></div>
+        </div>
+        <div class="wizard-field-row">
+          <div class="wizard-field"><span class="wizard-field-label">Email</span><input type="email" id="f-email" placeholder="jane@yourbrand.com"></div>
+          <div class="wizard-field"><span class="wizard-field-label">Phone</span><input type="tel" id="f-phone" placeholder="(000) 000-0000"></div>
+        </div>
+        <div class="wizard-field">
+          <span class="wizard-field-label">Business / Event Name</span>
+          <input type="text" id="f-bizname" placeholder="Your brand or event name">
+        </div>
+        <div class="wizard-field-row">
+          <div class="wizard-field"><span class="wizard-field-label">Deadline / Event Date</span><input type="text" id="f-deadline" placeholder="e.g. March 15 or ASAP"></div>
+          <div class="wizard-field"><span class="wizard-field-label">Footage / Assets Link</span><input type="text" id="f-assets" placeholder="Google Drive or Dropbox link"></div>
+        </div>
+        <div class="wizard-field">
+          <span class="wizard-field-label">Project Details</span>
+          <textarea id="f-details" rows="4" placeholder="Tell us anything else we should know about your project, event, or brand..."></textarea>
+        </div>
+
+        <div class="wizard2-social-brief" id="social-brief" hidden>
+          <div class="wizard-addons-title" style="margin-top:0;">Social Media Brief</div>
+          <p class="wizard-step-desc" style="margin-bottom:20px;">This helps us skip repetitive questions on the onboarding call so we can spend that time choosing layouts.</p>
+
+          <div class="wizard-field-row">
+            <div class="wizard-field"><span class="wizard-field-label">Brand Colors</span><input type="text" id="f-brandcolors" placeholder="Hex codes, or describe them like cobalt blue and cream"></div>
+            <div class="wizard-field"><span class="wizard-field-label">Brand Fonts</span><input type="text" id="f-brandfonts" placeholder="Fonts you use now, or note no established fonts"></div>
+          </div>
+          <div class="wizard-field">
+            <span class="wizard-field-label">What Can You Provide?</span>
+            <textarea id="f-assetneeds" rows="3" placeholder="Photos, videos, or logos you already have on hand"></textarea>
+          </div>
+          <div class="wizard-field" style="margin-bottom:24px;">
+            <label class="wizard-checkbox">
+              <input type="checkbox" id="chk-shootday-brief">
+              <span class="wizard-checkbox-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5L5 9L9.5 3.5" stroke="#FFFAF6" stroke-width="2" stroke-linecap="square"></path></svg></span>
+              <span class="wizard-checkbox-label">I'll need Content Shoot Day added on</span>
+            </label>
+          </div>
+
+          <div class="wizard-suboptions-label">Which best describes the tone you want for your content?</div>
+          <div class="wizard-cards wizard-cards-3 wizard-cards-tone" style="margin-bottom:0;">
+            <button type="button" class="wizard-card" data-tone="bold">
+              <span class="wizard-card-title">Bold</span>
+              <span class="wizard-card-desc">High-impact, confident and attention-grabbing.</span>
+            </button>
+            <button type="button" class="wizard-card" data-tone="refined">
+              <span class="wizard-card-title">Refined</span>
+              <span class="wizard-card-desc">Clean, modern, minimal and sophisticated.</span>
+            </button>
+            <button type="button" class="wizard-card" data-tone="organic">
+              <span class="wizard-card-title">Organic</span>
+              <span class="wizard-card-desc">Warm, authentic, approachable and expressive.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="wizard-btn-row">
+          <button type="button" class="wizard-btn-primary" id="next4" disabled>Review My Order →</button>
+          <button type="button" class="wizard-btn-back" id="back3">← Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: REVIEW & SUBMIT -->
+      <div class="wizard-step-panel" data-step="5" hidden>
+        <div class="wizard-step-eyebrow">Step 5 of 5</div>
+        <h2 class="wizard-step-title">Review &amp; Submit.</h2>
+        <p class="wizard-step-desc">Double-check your selections before we get started.</p>
+
+        <div class="wizard-review-box wizard-sunk">
+          <div class="wizard-review-title">Your Order</div>
+          <div class="wizard-review-line"><span>Client Type</span><span id="sum-clienttype">—</span></div>
+          <div class="wizard-review-line"><span>Service</span><span id="sum-service">—</span></div>
+          <div id="breakdown-lines-5"></div>
+          <div class="wizard-total-sum"><span>Total</span><span id="total-label-5">$0</span></div>
+        </div>
+
+        <div class="wizard-review-box wizard-card-bg">
+          <div class="wizard-review-title">Your Details</div>
+          <div class="wizard-review-line"><span>Name</span><span id="sum-name">—</span></div>
+          <div class="wizard-review-line"><span>Email</span><span id="sum-email">—</span></div>
+          <div class="wizard-review-line"><span>Phone</span><span id="sum-phone">—</span></div>
+          <div class="wizard-review-line"><span>Business / Event</span><span id="sum-biz">—</span></div>
+          <div class="wizard-review-line"><span>Deadline</span><span id="sum-deadline">—</span></div>
+          <div class="wizard-review-line"><span>Assets Link</span><span id="sum-assets">—</span></div>
+          <div id="social-brief-review" hidden>
+            <div class="wizard-review-line"><span>Brand Colors</span><span id="sum-brandcolors">—</span></div>
+            <div class="wizard-review-line"><span>Brand Fonts</span><span id="sum-brandfonts">—</span></div>
+            <div class="wizard-review-line"><span>Assets You Can Provide</span><span id="sum-assetneeds">—</span></div>
+            <div class="wizard-review-line"><span>Tone Preference</span><span id="sum-tone">—</span></div>
+          </div>
+          <div class="wizard-review-line" style="border-bottom:none;"><span>Project Details</span><span id="sum-details">—</span></div>
+        </div>
+
+        <div class="wizard-btn-row">
+          <button type="button" class="wizard-btn-primary wizard-btn-accent" id="submit-order">Submit →</button>
+          <button type="button" class="wizard-btn-back" id="back4">← Edit</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="wizard-step-panel wizard-success" data-step="success" hidden>
+        <div class="wizard-success-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#263CFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg></div>
+        <h2 class="wizard-success-title">You're All Set.</h2>
+        <p class="wizard-success-desc">Thanks for reaching out. We'll review your project and get back to you within 24 hours.</p>
+        <div class="wizard-success-card">
+          <div class="wizard-success-line"><span>Client Type</span><span id="succ-clienttype">—</span></div>
+          <div class="wizard-success-line"><span>Service</span><span id="succ-service">—</span></div>
+          <div class="wizard-success-line"><span>Total</span><span id="succ-total">$0</span></div>
+          <div class="wizard-success-line"><span>Name</span><span id="succ-name">—</span></div>
+        </div>
+        <a href="index.html" class="wizard-success-back">← Back to Waymaker Studios</a>
+      </div>
+
+    </div>
   </div>
-  <span class="footer-copy">© 2026 Waymaker Studios</span>
-</footer>
+</div>
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/start.js"></script>

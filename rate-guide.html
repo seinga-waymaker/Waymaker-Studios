@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corporate &amp; Enterprise Rate Guide — Waymaker Studios</title>
+<meta name="description" content="Request the Waymaker Studios corporate and enterprise rate guide for branding, photography, videography and content campaigns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500;600&family=Playfair+Display:ital,wght@0,500;1,500;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="gate-nav">
+  <a href="index.html" class="gate-nav-logo">
+    <img src="assets/images/waymaker-logo.png" alt="Waymaker Studios">
+  </a>
+  <a href="index.html" class="gate-nav-back">← Back to site</a>
+</nav>
+
+<section class="gate-section">
+  <div class="gate-card">
+    <span class="eyebrow">Waymaker Studios</span>
+
+    <div id="gate-form-state">
+      <div class="gate-card" style="gap:20px; padding:0;">
+        <h1 class="gate-h1">Corporate &amp; Enterprise<br>Rate Guide</h1>
+        <p class="gate-copy">See our starting rates for custom branding, photography, videography and content campaigns. Enter your email to view our rate guide.</p>
+
+        <form id="rate-guide-form" class="gate-form" novalidate>
+          <input type="text" id="rg-name" name="name" placeholder="Your name" required autocomplete="name">
+          <input type="email" id="rg-email" name="email" placeholder="Your email" required autocomplete="email">
+          <p class="gate-error" id="rg-error" hidden></p>
+          <button type="submit" class="btn gate-submit" id="rg-submit">View Rate Guide</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="gate-success-state" style="display:none; flex-direction:column; align-items:center; gap:24px; width:100%;">
+      <h1 class="gate-h1">Thanks! Here's your rate guide.</h1>
+      <a href="https://drive.google.com/file/d/1qTv-hlocKzo-mAuPWH0lTkpTLMvvcVZC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gate-download">Download Rate Guide</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/rate-guide.js"></script>
+</body>
+</html>
