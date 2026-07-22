@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const f2 = document.querySelector('[data-frame="f2"]');
   const f3 = document.querySelector('[data-frame="f3"]');
   const f4 = document.querySelector('[data-frame="f4"]');
-  const f5 = document.querySelector('[data-frame="f5"]');
-  const f6 = document.querySelector('[data-frame="f6"]');
   const rises = [...document.querySelectorAll('[data-rise]')];
   const cue = document.getElementById('hero-cue');
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -22,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const E = 'cubic-bezier(.76,0,.24,1)';
 
-  // Six-frame reel loops forever as the hero background, each frame holding
-  // for ~1/6 of the cycle. Each later frame fades IN on top of the one
+  // Four-frame reel loops forever as the hero background, each frame holding
+  // for ~1/4 of the cycle. Each later frame fades IN on top of the one
   // before it (which stays fully opaque underneath, per DOM stacking
   // order) — a true crossfade with nothing ever dropping to 0
   // mid-transition, so the black reel background never shows through.
@@ -31,36 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const D = 7400;
   if (f2) f2.animate([
     { opacity: 0 },
-    { opacity: 0, offset: .147 },
-    { opacity: 1, offset: .167 },
+    { opacity: 0, offset: .23 },
+    { opacity: 1, offset: .25 },
     { opacity: 1, offset: .97 },
     { opacity: 0 },
   ], { duration: D, iterations: Infinity });
   if (f3) f3.animate([
-    { opacity: 0 },
-    { opacity: 0, offset: .313 },
-    { opacity: 1, offset: .333 },
-    { opacity: 1, offset: .97 },
-    { opacity: 0 },
-  ], { duration: D, iterations: Infinity });
-  if (f4) f4.animate([
     { opacity: 0 },
     { opacity: 0, offset: .48 },
     { opacity: 1, offset: .50 },
     { opacity: 1, offset: .97 },
     { opacity: 0 },
   ], { duration: D, iterations: Infinity });
-  if (f5) f5.animate([
+  if (f4) f4.animate([
     { opacity: 0 },
-    { opacity: 0, offset: .647 },
-    { opacity: 1, offset: .667 },
-    { opacity: 1, offset: .97 },
-    { opacity: 0 },
-  ], { duration: D, iterations: Infinity });
-  if (f6) f6.animate([
-    { opacity: 0 },
-    { opacity: 0, offset: .813 },
-    { opacity: 1, offset: .833 },
+    { opacity: 0, offset: .73 },
+    { opacity: 1, offset: .75 },
     { opacity: 1, offset: .97 },
     { opacity: 0 },
   ], { duration: D, iterations: Infinity });
