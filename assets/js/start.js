@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     social: {
       label: 'Social Media Content',
       tiers: {
-        personal: { price: 250, deliverable: '3–5 campaign graphics', turnaround: '5–7 business day turnaround' },
+        personal: { price: 250, deliverable: '4 campaign graphics', turnaround: '5–7 business day turnaround' },
       },
       shootDay: { personal: 275 },
     },
