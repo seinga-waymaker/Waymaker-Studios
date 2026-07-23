@@ -811,7 +811,6 @@ a { color: inherit; }
   .cta-card { text-align: center; }
   .cta-card .eyebrow, .cta-card h2, .cta-card p { margin-left: auto; margin-right: auto; }
   .cta-buttons { justify-content: center; }
-  .kit-heading { text-align: center; }
 }
 
 @media (max-width: 760px) {
